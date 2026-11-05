@@ -364,3 +364,14 @@ body.paged .pager{display:flex}
   body.paged main > section{display:block !important}
   .pager,.progress,.toc{display:none !important}
 }
+
+/* 데스크톱 앱 설치 링크 */
+.app-install{background:var(--cream);border-radius:12px;padding:14px 16px;margin:0 0 12px}
+.app-install > b{display:block;font-size:15px;margin-bottom:8px}
+.app-install p{margin:8px 0 0;font-size:13.5px;color:var(--ink-2)}
+.app-links{display:flex;flex-wrap:wrap;gap:8px}
+.app-link{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:9px 14px 9px 10px;text-decoration:none;color:var(--ink);flex:1 1 200px}
+.app-link:hover{border-color:var(--accent)}
+.app-link b{display:block;font-size:14.5px}
+.app-link small{display:block;font-size:12px}
+.app-ico{flex:none;width:34px;height:34px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12px}
