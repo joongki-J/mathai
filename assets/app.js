@@ -122,18 +122,6 @@
   try { if (localStorage.getItem("onlyPrompts") === "1") { toggle.checked = true; applyOnly(true); } } catch (e) {}
   toggle.addEventListener("change", function () { applyOnly(toggle.checked); });
 
-  /* ---------- active nav ---------- */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".topnav a"));
-  var targets = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
-  function onScroll() {
-    var y = window.scrollY + 120;
-    var idx = -1;
-    targets.forEach(function (t, i) { if (t && t.offsetTop <= y) idx = i; });
-    navLinks.forEach(function (a, i) { a.classList.toggle("active", i === idx); });
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
   /* ---------- 자료실 ---------- */
   var listEl = document.getElementById("fileList");
   var searchEl = document.getElementById("fileSearch");
@@ -219,4 +207,185 @@
     });
 
   searchEl.addEventListener("input", render);
+})();
+
+/* =========================================================
+   페이지 넘기기: 한 장씩 보여 주고 버튼·키보드·스와이프로 이동
+   ========================================================= */
+(function () {
+  "use strict";
+  var main = document.querySelector("main");
+  var all = Array.prototype.slice.call(main.children).filter(function (el) { return el.tagName === "SECTION"; });
+  var pages = [];
+  var cur = 0;
+
+  var prevBtn = document.getElementById("prevBtn");
+  var nextBtn = document.getElementById("nextBtn");
+  var pgNow = document.getElementById("pgNow");
+  var pgTotal = document.getElementById("pgTotal");
+  var bar = document.getElementById("progressBar");
+  var tocBtn = document.getElementById("tocBtn");
+  var toc = document.getElementById("toc");
+  var tocList = document.getElementById("tocList");
+
+  function titleOf(sec) {
+    if (sec.id === "cover") return "표지";
+    if (sec.id === "thanks") return "감사합니다";
+    var h = sec.querySelector("h2, h3");
+    var t = h ? h.innerHTML.replace(/<br\s*\/?>/gi, " ").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim() : "";
+    if (sec.classList.contains("part-head")) {
+      var n = sec.querySelector(".num");
+      return (n ? n.textContent.trim() + " · " : "") + t;
+    }
+    return t;
+  }
+
+  function buildPages() {
+    var only = document.body.classList.contains("only");
+    pages = all.filter(function (s) {
+      if (!only) return true;
+      return s.classList.contains("has-prompt");
+    });
+    pgTotal.textContent = pages.length;
+    tocList.innerHTML = "";
+    pages.forEach(function (s, i) {
+      var li = document.createElement("li");
+      if (s.classList.contains("part-head")) li.className = "part";
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="n">' + (i + 1) + "</span><span></span>";
+      b.lastChild.textContent = titleOf(s);
+      b.addEventListener("click", function () { closeToc(); go(i); });
+      li.appendChild(b);
+      tocList.appendChild(li);
+    });
+  }
+
+  function go(i, dir, keepScroll) {
+    if (!pages.length) return;
+    i = Math.max(0, Math.min(pages.length - 1, i));
+    if (dir === undefined) dir = i >= cur ? 1 : -1;
+    all.forEach(function (s) { s.classList.remove("cur", "in-next", "in-prev"); });
+    var s = pages[i];
+    s.classList.add("cur");
+    void s.offsetWidth;
+    s.classList.add(dir < 0 ? "in-prev" : "in-next");
+    cur = i;
+    pgNow.textContent = i + 1;
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === pages.length - 1;
+    bar.style.width = ((i + 1) / pages.length * 100) + "%";
+    Array.prototype.forEach.call(tocList.children, function (li, k) { li.classList.toggle("cur", k === i); });
+    if (s.id && location.hash !== "#" + s.id) {
+      try { history.replaceState(null, "", "#" + s.id); } catch (e) {}
+    }
+    if (!keepScroll) window.scrollTo({ top: 0, behavior: "auto" });
+    markNav(s);
+  }
+
+  /* 상단 메뉴의 현재 부 표시 */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".topnav a"));
+  function markNav(sec) {
+    var idx = all.indexOf(sec), hit = -1;
+    navLinks.forEach(function (a, k) {
+      var t = document.querySelector(a.getAttribute("href"));
+      if (t && all.indexOf(t) <= idx) hit = k;
+    });
+    navLinks.forEach(function (a, k) { a.classList.toggle("active", k === hit); });
+  }
+
+  /* id가 들어 있는 페이지 찾기 */
+  function pageIndexForId(id) {
+    var el = id && document.getElementById(id);
+    if (!el) return -1;
+    var sec = el.closest("main > section");
+    var i = pages.indexOf(sec);
+    if (i === -1 && document.body.classList.contains("only")) {
+      document.getElementById("onlyPrompts").checked = false;
+      document.getElementById("onlyPrompts").dispatchEvent(new Event("change"));
+      i = pages.indexOf(sec);
+    }
+    return i;
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    var i = pageIndexForId(id);
+    if (i === -1) return;
+    e.preventDefault();
+    go(i);
+  });
+
+  prevBtn.addEventListener("click", function () { go(cur - 1, -1); });
+  nextBtn.addEventListener("click", function () { go(cur + 1, 1); });
+
+  /* 키보드 */
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (!toc.hidden) { if (e.key === "Escape") closeToc(); return; }
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(cur + 1, 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(cur - 1, -1); }
+    else if (e.key === "Home") { go(0, -1); }
+    else if (e.key === "End") { go(pages.length - 1, 1); }
+  });
+
+  /* 스와이프 (표·코드처럼 옆으로 스크롤되는 곳은 제외) */
+  var sx = 0, sy = 0, st = 0, tracking = false;
+  main.addEventListener("touchstart", function (e) {
+    if (e.touches.length !== 1 || e.target.closest(".table-wrap, pre, input, .url-diagram")) { tracking = false; return; }
+    tracking = true;
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
+  }, { passive: true });
+  main.addEventListener("touchend", function (e) {
+    if (!tracking) return;
+    tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6 && Date.now() - st < 800) {
+      if (dx < 0) go(cur + 1, 1); else go(cur - 1, -1);
+    }
+  }, { passive: true });
+
+  /* 목차 */
+  function openToc() {
+    toc.hidden = false;
+    tocBtn.setAttribute("aria-expanded", "true");
+    var li = tocList.children[cur];
+    if (li) { li.scrollIntoView({ block: "center" }); li.querySelector("button").focus(); }
+  }
+  function closeToc() {
+    toc.hidden = true;
+    tocBtn.setAttribute("aria-expanded", "false");
+    tocBtn.focus();
+  }
+  tocBtn.addEventListener("click", openToc);
+  document.getElementById("tocClose").addEventListener("click", closeToc);
+  toc.addEventListener("click", function (e) { if (e.target === toc) closeToc(); });
+
+  /* 프롬프트만 스위치를 바꾸면 페이지 목록을 다시 만듦 */
+  document.getElementById("onlyPrompts").addEventListener("change", function () {
+    var sec = pages[cur];
+    buildPages();
+    var i = pages.indexOf(sec);
+    if (i === -1) {
+      var idx = all.indexOf(sec);
+      i = pages.length - 1;
+      for (var k = pages.length - 1; k >= 0; k--) { if (all.indexOf(pages[k]) >= idx) i = k; }
+    }
+    go(i, 1);
+  });
+
+  window.addEventListener("hashchange", function () {
+    var i = pageIndexForId(location.hash.slice(1));
+    if (i !== -1 && i !== cur) go(i);
+  });
+
+  document.body.classList.add("paged");
+  buildPages();
+  var start = pageIndexForId(location.hash.slice(1));
+  go(start === -1 ? 0 : start, 1, false);
 })();

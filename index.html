@@ -34,7 +34,7 @@
 <main id="top">
 
 <!-- ================= HERO ================= -->
-<section class="hero">
+<section class="hero" id="cover">
   <div class="hero-text">
     <p class="eyebrow">중등 교사 연수 · 웹 교재</p>
     <h1>Claude로 만드는<br>나만의 수학 수업<br>도구와 홈페이지</h1>
@@ -44,6 +44,7 @@
   <div class="hero-howto">
     <h2>이 페이지 쓰는 법</h2>
     <ol>
+      <li>아래 <b>[다음 ›]</b> 버튼이나 키보드 ←/→로 넘깁니다. 휴대폰은 옆으로 밀면 됩니다. 가운데 쪽수를 누르면 목차가 열립니다.</li>
       <li><span class="mini-prompt">프롬프트</span> 상자 오른쪽 위 <b>[복사]</b>를 누르고 Claude 입력창에 붙여넣습니다.</li>
       <li><mark class="ph">[대괄호]</mark>로 표시된 부분은 내 상황에 맞게 바꿔서 보냅니다.</li>
       <li>위쪽 <b>프롬프트만</b> 스위치를 켜면 설명은 접고 프롬프트만 모아 볼 수 있습니다.</li>
@@ -1300,7 +1301,7 @@
   </div>
 </section>
 
-<section class="thanks">
+<section class="thanks" id="thanks">
   <img src="assets/img/cos.png" alt="" class="thanks-bg" loading="lazy">
   <div>
     <p class="eyebrow">마무리</p>
@@ -1314,6 +1315,21 @@
 <footer class="foot">
   <p>Claude로 만드는 나만의 수학 수업 도구와 홈페이지 · 대구미래교육연구원 중등 교사 연수 (2026.11.10.)</p>
 </footer>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<nav class="pager" aria-label="페이지 넘기기">
+  <button type="button" class="pg-btn" id="prevBtn" aria-label="이전 페이지"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>이전</span></button>
+  <button type="button" class="pg-count" id="tocBtn" aria-haspopup="dialog" aria-expanded="false" title="목차 열기"><b id="pgNow">1</b> / <span id="pgTotal">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+  <button type="button" class="pg-btn next" id="nextBtn" aria-label="다음 페이지"><span>다음</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+
+<div class="toc" id="toc" role="dialog" aria-label="목차" hidden>
+  <div class="toc-panel">
+    <div class="toc-head"><b>목차</b><button type="button" id="tocClose" aria-label="목차 닫기">✕</button></div>
+    <ol id="tocList"></ol>
+  </div>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
 
