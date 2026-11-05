@@ -1,0 +1,51 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build file list for 자료실
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          d = "files"
+          out = []
+          for name in sorted(os.listdir(d)):
+              p = os.path.join(d, name)
+              if not os.path.isfile(p) or name.startswith(".") or name in ("index.json", "README.md"):
+                  continue
+              date = subprocess.run(["git", "log", "-1", "--format=%cI", "--", p],
+                                    capture_output=True, text=True).stdout.strip()
+              out.append({"name": name, "size": os.path.getsize(p), "updated": date})
+          with open(os.path.join(d, "index.json"), "w", encoding="utf-8") as f:
+              json.dump({"files": out}, f, ensure_ascii=False, indent=1)
+          print(json.dumps(out, ensure_ascii=False, indent=1))
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
