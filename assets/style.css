@@ -626,3 +626,16 @@ table.terms td small{display:block;color:var(--accent-ink);font-weight:600;font-
 table.terms td:last-child{text-align:right}
 table.terms td:last-child small{color:var(--ink-3);font-weight:400}
 @media (max-width:600px){table.terms td:last-child{text-align:left}}
+
+/* 사이트 모음 */
+body.only .links{display:none}
+.links h4{font-size:13px;color:var(--accent-ink);margin:18px 0 8px}
+.link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.link-card{display:flex;flex-direction:column;gap:2px;background:var(--cream);border-radius:4px;padding:12px 14px;text-decoration:none;color:var(--ink);border:1.5px solid transparent;transition:border-color .15s}
+.link-card:hover{border-color:var(--accent)}
+.link-card b{font-size:14.5px}
+.link-card b::after{content:" ↗";color:var(--accent)}
+.link-card span{font-size:13px;color:var(--ink-2)}
+.link-card small{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);overflow-wrap:anywhere;margin-top:2px}
+@media (max-width:860px){.link-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.link-grid{grid-template-columns:1fr}}

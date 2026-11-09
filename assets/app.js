@@ -248,7 +248,7 @@
       if (!only) return true;
       return s.classList.contains("has-prompt");
     });
-    offset = pages.filter(function (s) { return s.classList.contains("files"); }).length;
+    offset = pages.filter(function (s) { return s.classList.contains("files") || s.classList.contains("links"); }).length;
     pgTotal.textContent = pages.length - offset;
     tocList.innerHTML = "";
     pages.forEach(function (s, i) {
