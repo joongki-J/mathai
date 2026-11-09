@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="stylesheet" href="assets/style.css?v=5">
 </head>
 <body>
 
@@ -80,7 +80,7 @@
   </div>
   <div class="hero-visual" aria-hidden="true">
     <div class="mock">
-      <div class="mock-bar"><i></i><i></i><i></i><span>teacher.github.io/math-class</span></div>
+      <div class="mock-bar"><i></i><i></i><i></i><span>teacher.github.io/math-lab</span></div>
       <div class="mock-body">
         <p class="mock-q"><b>문제 1</b>y = 2x + 1의 기울기는?</p>
         <div class="mock-input"><span>2</span><em>제출</em></div>
@@ -101,7 +101,7 @@
     <a class="part dark" href="#p1"><span class="num">1부</span><b>Claude 이해하기</b><span>웹과 데스크톱 앱의 차이, 켜 두면 좋은 설정, 수업 현장에서 지킬 원칙</span></a>
     <a class="part" href="#p2"><span class="num">2부</span><b>기본 기능 따라 하기</b><span>스킬, 커넥터, 플러그인, 프로젝트, 아티팩트</span></a>
     <a class="part" href="#p3"><span class="num">3부</span><b>학생 데이터가 쌓이는 웹앱</b><span>Apps Script와 AI 피드백, 학교 계정으로 학생 확인</span></a>
-    <a class="part" href="#p4"><span class="num">4부</span><b>GitHub와 수업 홈페이지</b><span>기본 틀로 내 홈페이지를 공개하고 오늘 만든 앱 연결하기</span></a>
+    <a class="part" href="#p4"><span class="num">4부</span><b>GitHub와 수업 홈페이지</b><span>기본 틀을 올리고, Claude로 디자인해 커넥터로 다시 올리기</span></a>
   </div>
   <p class="note">하나의 앱, <b>삼각함수 그래프 그리기</b>를 단계마다 키워 가며 진행합니다.</p>
 </section>
@@ -150,7 +150,7 @@
       <tr><td>설치</td><td>필요 없음</td><td>Windows, macOS에 설치</td></tr>
       <tr><td>파일 다루기</td><td>파일을 업로드</td><td>파일을 업로드 또는 내 컴퓨터 폴더를 연결</td></tr>
       <tr><td>빠른 입력</td><td>없음</td><td>단축키로 어디서나 열기 (Ctrl+Alt+Space)</td></tr>
-      <tr><td>Claude Code</td><td>claude.ai/code (유료, GitHub 저장소 연결)</td><td>Code 탭 (유료, 내 컴퓨터 폴더에서 작업)</td></tr>
+      <tr><td>Claude Code</td><td>claude.ai/code (GitHub 저장소 연결)</td><td>Code 탭 (내 컴퓨터 폴더에서 작업)</td></tr>
       <tr><td>컴퓨터 사용</td><td>없음</td><td>설정에서 켜기 (유료, 베타)</td></tr>
     </tbody>
   </table></div>
@@ -196,10 +196,10 @@
   <div class="table-wrap"><table class="settings">
     <thead><tr><th>기능</th><th>위치</th><th></th><th>왜</th></tr></thead>
     <tbody>
-      <tr><td><b>코드 실행 및 파일 생성</b></td><td>설정 → 기능</td><td><span class="on">켜기</span></td><td>스킬, 아티팩트, 파일 만들기가 이 기능으로 작동합니다 (무료 포함)</td></tr>
       <tr><td><b>응답 완료 알림</b></td><td>설정 → 일반 → 알림</td><td><span class="on">켜기</span></td><td>일을 맡겨 두고 다른 일을 하다가, 끝나면 알림으로 확인합니다</td></tr>
       <tr><td><b>Help improve our AI models</b></td><td>설정 → 개인정보 보호 → 환경설정</td><td><span class="off">끄기</span></td><td>학생 자료가 담긴 대화가 AI 모델 학습에 쓰이지 않게 합니다</td></tr>
       <tr><td><b>AI 기반 아티팩트</b></td><td>설정 → 기능 → 비주얼</td><td><span class="on">켜기</span></td><td>아티팩트 안에서 Claude를 불러 쓰는 수업 도구를 만들 수 있습니다</td></tr>
+      <tr><td><b>코드 실행 및 파일 생성</b></td><td>설정 → 기능</td><td><span class="on">켜기</span></td><td>스킬, 아티팩트, 파일 만들기가 이 기능으로 작동합니다 (무료 포함)</td></tr>
       <tr><td><b>채팅 검색 및 참조</b></td><td>설정 → 메모리</td><td><span class="on">켜기</span></td><td>지난 대화를 찾아 이어서 작업합니다 (Pro 이상)</td></tr>
       <tr><td><b>컴퓨터 사용</b></td><td>설정 → 시스템 → 컴퓨터 사용</td><td><span class="on">켜기</span></td><td>Claude가 화면을 보고 앱을 직접 조작합니다 (유료, 데스크톱 앱)</td></tr>
     </tbody>
@@ -215,32 +215,13 @@
     <thead><tr><th>모델</th><th>이럴 때 씁니다</th><th>토큰 비용 (Sonnet = 1)</th></tr></thead>
     <tbody>
       <tr><td><b>Fable 5.1</b><br><small>가장 어려운 과제를 위해</small></td><td>어려운 증명 검토, 긴 단원 자료 설계</td><td>5배 <small>Max 포함, Pro는 사용 크레딧</small></td></tr>
-      <tr class="hl"><td><b>Opus 5.5</b><br><small>복잡한 작업과 일상 업무를 위해</small></td><td>문항 변형, 수업 도구·홈페이지 만들기</td><td>2배 <small>기본 선택</small></td></tr>
-      <tr><td><b>Sonnet 5.5</b><br><small>간단한 작업에 가장 효율적</small></td><td>가정통신문 다듬기, 자료 요약</td><td>1배 <small>기준</small></td></tr>
+      <tr class="hl"><td><b>Opus 5.5</b><br><small>복잡한 작업과 일상 업무를 위해</small></td><td>문항 변형, 수업 도구·홈페이지 만들기</td><td>2배 <small>평소 선택</small></td></tr>
+      <tr><td><b>Sonnet 5.5</b><br><small>간단한 작업에 가장 효율적</small></td><td>가정통신문 다듬기, 자료 요약</td><td>1배 <small>기준 · 오늘 사용</small></td></tr>
       <tr><td><b>Haiku 5.5</b><br><small>가장 빠른 답변</small></td><td>짧은 질문, 용어 확인</td><td>0.1배 <small>Sonnet의 1/20</small></td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>노력</b> · 높일수록 오래 생각해 답이 꼼꼼해지고 토큰도 더 씁니다. 평소에는 ‘중간’이면 충분합니다.</p>
   <p class="fine">토큰 비용은 출력 100만 토큰당 API 가격 기준 (Haiku $0.50, Sonnet $10, Opus $20, Fable $50, 2026년 10월). 구독 요금제에서는 큰 모델일수록 사용 한도가 빨리 줄어듭니다.</p>
-</section>
-
-<section class="block" id="s-plans">
-  <p class="label">1부 · 요금제 안내</p>
-  <h3>무료와 유료 요금제의 차이</h3>
-  <div class="cards two">
-    <div class="card"><b>무료</b><p>스킬 · 프로젝트 (5개까지) · 커넥터 · 아티팩트 · 파일 만들기, 웹 검색</p></div>
-    <div class="card accent"><b>유료 (Pro 이상)</b><p>플러그인 · Claude Code · 리서치 · 채팅 검색 및 참조 · 컴퓨터 사용 · 더 많은 사용량, 더 많은 모델</p></div>
-  </div>
-  <p class="tip">오늘은 연수원이 제공하는 유료 계정으로 모두 체험합니다. 요금제별 기능은 자주 바뀌니 claude.com/pricing 에서 최신 내용을 확인하세요.</p>
-</section>
-
-<section class="block" id="s-rules">
-  <p class="label">1부 · 수업 현장에서</p>
-  <h3>꼭 지킬 두 가지</h3>
-  <div class="cards two">
-    <div class="card big"><span class="big-num">1</span><b>학생 개인정보는 넣지 않기</b><p>이름·학번·연락처·성적이 함께 든 자료는 올리지 않습니다. 필요하면 학생A, 학생B로 바꾸고 학번은 지웁니다.</p></div>
-    <div class="card big"><span class="big-num">2</span><b>AI 결과는 직접 확인하기</b><p>계산 실수나 잘못된 풀이가 있을 수 있습니다. 문항, 정답, 풀이는 직접 풀어 보고 씁니다.</p></div>
-  </div>
 </section>
 
 <!-- ================================================================ -->
@@ -259,17 +240,59 @@
   </ol>
 </section>
 
-<section class="block" id="s-fivebox">
-  <p class="label">2부 · 시작하기 전에</p>
-  <h3>좋은 요청의 다섯 칸</h3>
-  <div class="cards five">
-    <div class="card"><b>역할</b><p>너는 ○○ 전문가야.</p></div>
-    <div class="card"><b>할 일</b><p>○○을 만들어 줘.</p></div>
-    <div class="card"><b>조건</b><p>반드시 지켜야 할 것, 넣지 말아야 할 것</p></div>
-    <div class="card"><b>형식</b><p>결과를 어떤 모양으로 받을지</p></div>
-    <div class="card"><b>설명 요청</b><p>나는 ○○을 잘 모르니 쉽게 설명해 줘.</p></div>
+<section class="block" id="s-artifact">
+  <p class="label">2부 · 아티팩트</p>
+  <h3>아티팩트는 대화 옆에 만들어지는 결과물</h3>
+  <p>말로 만들고 고치며, 버전이 남고, 공유 링크로 나눌 수 있습니다. 사이드바 › 아티팩트에서 새로 만들기.</p>
+  <div class="split">
+    <ul class="plain">
+      <li><b>문서</b> 수업 안내문, 학습지</li>
+      <li><b>슬라이드</b> 수업 자료 슬라이드</li>
+      <li><b>디자인</b> 포스터, 웹 화면 (Claude Design)</li>
+      <li><b>대시보드 (베타)</b> 성적·설문 현황</li>
+    </ul>
+    <figure><img src="assets/img/artifacts.png" alt="사이드바 › 아티팩트 화면" loading="lazy"></figure>
   </div>
-  <p class="tip">한 번에 완벽한 결과를 기대하지 말고, 결과를 보고 “이 부분만 바꿔 줘”라고 이어서 요청합니다. 오늘 붙여넣는 프롬프트는 모두 이 다섯 칸으로 되어 있습니다.</p>
+</section>
+
+<section class="block" id="s-artifact-tool">
+  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ①</span></p>
+  <h3>아티팩트로 탐구 도구 만들기</h3>
+  <div class="split wide-left">
+    <div>
+      <div class="prompt">
+<pre>삼각함수 그래프 단원용으로 y = a sin b(x − p) + q 의 a, b, p, q를 슬라이더로 바꾸며 그래프 변화를 탐구하는 웹 도구를 만들어 줘.
+- 처음 상태는 y = sin x (a=1, b=1, p=0, q=0)
+- 범위: a, q는 −3~3, b는 0.5~4 (모두 0.5 단위), p는 −π~π (π/6 단위)
+- 기본 그래프 y = sin x를 붉은색 점선으로 함께 표시
+- 주기·최댓값·최솟값을 숫자로 표시하고, 그래프에 한 주기 구간과 최댓값·최솟값 선도 표시
+- π/2 같은 분수는 모두 세로 분수로 표기
+- 디자인: 그래프 계산기 느낌, 수식은 교과서식 기울임 수학 서체, 매개변수별 색 구분
+- 모바일에서는 스크롤 없이 수식·그래프·수치·슬라이더가 한 화면에 모두 보이게</pre>
+      </div>
+      <div class="prompt" data-title="이어서">
+<pre>cos 그래프로 바꿀 수 있는 버튼도 추가해 줘.</pre>
+      </div>
+    </div>
+    <figure class="phone"><img src="assets/img/graph-tool.jpg" alt="사인함수 그래프 탐구 도구 아티팩트 화면" loading="lazy"></figure>
+  </div>
+  <p class="fine">만든 아티팩트는 왼쪽 사이드바 아티팩트 탭에 모두 저장되고, 오른쪽 위 공유 버튼으로 나눌 수 있습니다.</p>
+</section>
+
+<section class="block" id="s-artifact-share">
+  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ②</span></p>
+  <h3>학생에게 링크로 나눠 주기</h3>
+  <div class="split">
+    <ol class="steps">
+      <li>아티팩트 오른쪽 위 <b>[공유]</b> 누르기</li>
+      <li>일반 액세스: 나만 → <b>링크가 있는 모든 사용자</b></li>
+      <li>링크 복사 → 학급 채팅방에 붙여넣기</li>
+      <li>학생은 보기만, 편집은 할 수 없음</li>
+      <li>고친 뒤에는 링크 그대로 최신본이 보임</li>
+      <li class="plus">수업이 끝나면 다시 ‘초대받은 사람만’으로</li>
+    </ol>
+    <figure><img src="assets/img/share.png" alt="아티팩트 공유 설정 화면" loading="lazy"></figure>
+  </div>
 </section>
 
 <section class="block" id="s-skill">
@@ -281,6 +304,7 @@
     <div class="card"><b>파일까지 만듦</b><p>양식과 프로그램을 담을 수 있어 한글(hwpx) 파일도 생성</p></div>
     <div class="card"><b>동료와 나눔</b><p>zip 파일 하나라서 다른 선생님께 그대로 전달</p></div>
   </div>
+  <p class="tip"><b>추천 사이트</b> · <a href="https://claudeskills.info/ko" target="_blank" rel="noopener">claudeskills.info/ko</a>에서 다른 사람이 만든 스킬을 찾아 내려받을 수 있습니다 (공식 사이트 아님)</p>
 </section>
 
 <section class="block" id="s-skill-install">
@@ -393,21 +417,6 @@
   </div>
 </section>
 
-<section class="block" id="s-plugin-do">
-  <p class="label">2부 · 플러그인 · 따라 하기</p>
-  <h3>추가하고, 한 번에 써 보기</h3>
-  <ol class="steps">
-    <li><b>사용자 지정 → 탭 플러그인</b></li>
-    <li>나눠 받은 플러그인 파일 올리기 <a class="inline-link" href="#files">자료실</a></li>
-    <li>구성 요소 목록 살펴보기</li>
-    <li>새 대화에서 <b>/</b> 입력 → <code>/가정통신문</code></li>
-  </ol>
-  <div class="prompt">
-<pre>내 드라이브에서 '[수업 공개]' 관련 교육청 공문을 찾아서, 우리 학교 선생님들께 보낼 메신저 안내 문구로 바꿔 줘. 그리고 그 내용으로 교내 기안문도 써 줘.</pre>
-  </div>
-  <p class="tip">드라이브에서 공문 찾기 (커넥터) → 규정대로 기안문 쓰기 (스킬)가 한 번에 이어집니다.</p>
-</section>
-
 <section class="block" id="s-project">
   <p class="label">2부 · 프로젝트</p>
   <h3>프로젝트는 과목별 전용 작업방</h3>
@@ -425,24 +434,8 @@
   <p class="fine">넣어 둘 자료: 성취기준과 성취수준(가장 중요), 학교 평가 계획서, 교과서 단원 목차, 기출 문항(학생 정보 제외).</p>
 </section>
 
-<section class="block" id="s-md">
-  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ①</span></p>
-  <h3>성취기준 파일을 md로 바꾸기</h3>
-  <p>새 대화 → 입력창 [+] → 파일 업로드로 성취기준 파일을 올리고 보냅니다. 만들어진 md 파일은 다운로드합니다.</p>
-  <div class="prompt">
-<pre>첨부한 [대수] 성취기준 파일을 프로젝트 자료로 쓰려고 해.
-성취기준 코드, 성취기준 내용, 성취수준(A~E)을 빠짐없이 옮기고 머리글·쪽 번호 같은 불필요한 내용은 빼서 md 파일로 정리해 줘.
-성취기준마다 제목을 달아 줘.</pre>
-  </div>
-  <details class="more">
-    <summary>왜 md 파일인가요</summary>
-    <p>PDF·한글 파일은 머리글, 쪽 번호, 표 테두리까지 읽혀 분량이 늘고 표가 뒤섞이기도 합니다. md는 메모장으로 열리는 텍스트에 제목·표 규칙이 있는 파일이라 구조가 그대로 전달됩니다.</p>
-  </details>
-  <p class="warn">저장한 md 파일을 원본과 꼭 대조합니다. 문구가 하나라도 틀리면 문항 출제가 모두 어긋납니다.</p>
-</section>
-
 <section class="block" id="s-project-make">
-  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ②③</span></p>
+  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ①②</span></p>
   <h3>프로젝트 만들고 자료 넣기</h3>
   <ol class="steps">
     <li>왼쪽 사이드바 <b>프로젝트(Projects)</b></li>
@@ -476,62 +469,6 @@
   <p class="tip">작업마다 새 대화를 엽니다. 지침과 자료는 새 대화에도 그대로 적용됩니다.</p>
 </section>
 
-<section class="block" id="s-artifact">
-  <p class="label">2부 · 아티팩트</p>
-  <h3>아티팩트는 대화 옆에 만들어지는 결과물</h3>
-  <p>말로 만들고 고치며, 버전이 남고, 공유 링크로 나눌 수 있습니다. 사이드바 › 아티팩트에서 새로 만들기.</p>
-  <div class="split">
-    <ul class="plain">
-      <li><b>문서</b> 수업 안내문, 학습지</li>
-      <li><b>슬라이드</b> 수업 자료 슬라이드</li>
-      <li><b>디자인</b> 포스터, 웹 화면 (Claude Design)</li>
-      <li><b>대시보드 (베타)</b> 성적·설문 현황</li>
-    </ul>
-    <figure><img src="assets/img/artifacts.png" alt="사이드바 › 아티팩트 화면" loading="lazy"></figure>
-  </div>
-</section>
-
-<section class="block" id="s-artifact-tool">
-  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ①</span></p>
-  <h3>아티팩트로 탐구 도구 만들기</h3>
-  <p>2부에서 만든 과목 프로젝트를 열고 그 안에서 보냅니다.</p>
-  <div class="split wide-left">
-    <div>
-      <div class="prompt">
-<pre>삼각함수 그래프 단원용으로 y = a sin b(x − p) + q 의 a, b, p, q를 슬라이더로 바꾸며 그래프 변화를 탐구하는 웹 도구를 만들어 줘.
-- 처음 상태는 y = sin x (a=1, b=1, p=0, q=0)
-- 범위: a, q는 −3~3, b는 0.5~4 (모두 0.5 단위), p는 −π~π (π/6 단위)
-- 기본 그래프 y = sin x를 붉은색 점선으로 함께 표시
-- 주기·최댓값·최솟값을 숫자로 표시하고, 그래프에 한 주기 구간과 최댓값·최솟값 선도 표시
-- π/2 같은 분수는 모두 세로 분수로 표기
-- 디자인: 그래프 계산기 느낌, 수식은 교과서식 기울임 수학 서체, 매개변수별 색 구분
-- 모바일에서는 스크롤 없이 수식·그래프·수치·슬라이더가 한 화면에 모두 보이게</pre>
-      </div>
-      <div class="prompt" data-title="이어서">
-<pre>cos 그래프로 바꿀 수 있는 버튼도 추가해 줘.</pre>
-      </div>
-    </div>
-    <figure class="phone"><img src="assets/img/graph-tool.jpg" alt="사인함수 그래프 탐구 도구 아티팩트 화면" loading="lazy"></figure>
-  </div>
-  <p class="fine">만든 아티팩트는 왼쪽 사이드바 아티팩트 탭에 모두 저장되고, 오른쪽 위 공유 버튼으로 나눌 수 있습니다.</p>
-</section>
-
-<section class="block" id="s-artifact-share">
-  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ②</span></p>
-  <h3>학생에게 링크로 나눠 주기</h3>
-  <div class="split">
-    <ol class="steps">
-      <li>아티팩트 오른쪽 위 <b>[공유]</b> 누르기</li>
-      <li>일반 액세스: 나만 → <b>링크가 있는 모든 사용자</b></li>
-      <li>링크 복사 → 학급 채팅방에 붙여넣기</li>
-      <li>학생은 보기만, 편집은 할 수 없음</li>
-      <li>고친 뒤에는 링크 그대로 최신본이 보임</li>
-      <li class="plus">수업이 끝나면 다시 ‘초대받은 사람만’으로</li>
-    </ol>
-    <figure><img src="assets/img/share.png" alt="아티팩트 공유 설정 화면" loading="lazy"></figure>
-  </div>
-</section>
-
 <section class="block question" id="s-question">
   <p class="label">아티팩트로 할 수 없는 일</p>
   <h3>학생 응답을 모으려면<br>어떻게 해야 할까요?</h3>
@@ -547,9 +484,9 @@
   <p>하나의 앱, 삼각함수 그래프 그리기를 네 단계로 키웁니다</p>
   <ol class="flow">
     <li><b>① 아티팩트</b><span>그래프 그리기만 · 저장 안 됨</span></li>
-    <li><b>② Apps Script</b><span>시트·드라이브 저장, AI 피드백</span></li>
-    <li><b>③ 학교 계정</b><span>누가 냈는지 확인</span></li>
-    <li><b>④ GitHub Pages</b><span>홈페이지에 공개</span></li>
+    <li><b>② Apps Script</b><span>시트·드라이브 저장, AI 피드백 · Claude 대화 + 구글</span></li>
+    <li><b>③ 학교 계정</b><span>누가 냈는지 확인 · Apps Script 배포 설정</span></li>
+    <li><b>④ GitHub Pages</b><span>홈페이지에 공개 · 4부 · GitHub 웹</span></li>
   </ol>
   <p class="fine light">원칙: 기록은 시트, 파일은 드라이브, 공개는 GitHub Pages, AI 키는 스크립트 속성.</p>
 </section>
@@ -586,17 +523,6 @@
     </tbody>
   </table></div>
   <p class="tip">Apps Script는 구글이 제공하는 무료 실행 공간입니다. 시트·드라이브와 바로 연결되고 웹앱 주소를 만들어 줍니다.</p>
-</section>
-
-<section class="block" id="s-app-does">
-  <p class="label">3부 · ② Apps Script</p>
-  <h3>완성된 앱이 하는 일</h3>
-  <ol class="stages">
-    <li><b>1단계 · 학생이 그리고 제출</b><p>시트에 학번·성명·그래프 기록, 드라이브 ‘삼각함수 그래프 제출’ 폴더에 PNG 저장 → 학생 화면 ‘제출 완료’</p></li>
-    <li><b>2단계 · 코드가 측정</b><p>그린 좌표를 실제 sin·cos·tan 값과 비교해 일치율과 어긋난 지점 계산 → I열에 코드 측정 결과</p></li>
-    <li><b>3단계 · AI 피드백</b><p>Gemini가 그래프 분석 → J열에 AI 피드백 → 학생 화면에 문항별 피드백 → (이메일 입력 시) 확인 메일</p></li>
-  </ol>
-  <p class="fine">시트 구성: A 학번, B 성명, C~E 1~3번 그래프 이미지, F 이미지 링크, G 이메일, H 제출 시각, I 코드 측정 결과, J AI 피드백.</p>
 </section>
 
 <section class="block" id="s-codegs">
@@ -814,43 +740,8 @@
   <p class="fine">참고: 시트의 =AI() 함수는 유료 요금제나 개인 계정으로 Workspace 실험 프로그램에 참여한 경우에만 쓸 수 있습니다.</p>
 </section>
 
-<section class="block" id="s-school-account">
-  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑭</span> <span class="pill">선택</span></p>
-  <h3>학교 계정으로 학생 확인하기</h3>
-  <div class="prompt">
-<pre>학번 대신 학생이 로그인한 학교 계정 이메일로 누가 냈는지 기록하게 바꿔 줘. 바뀐 파일은 전체를 다시 줘.
-- 내 이메일이 아니라 제출한 학생 본인의 이메일이 기록돼야 해
-- 시트 맨 왼쪽에 이메일 칸을 새로 만들어 줘
-- 이메일을 못 가져오면 지금처럼 학번을 입력하게 해 줘
-- 학생 화면 맨 위에 어떤 계정으로 제출하는지 보여 줘</pre>
-  </div>
-  <ul class="plain">
-    <li>앱은 선생님의 <b>학교 계정</b>으로 만들어야 합니다.</li>
-    <li>다시 배포할 때 실행은 ‘나’, 액세스 권한은 ‘(학교 도메인) 내 사용자’로 둡니다.</li>
-    <li>개인 Gmail로 접속하면 이메일이 빈칸으로 와서 학번 입력으로 넘어갑니다.</li>
-  </ul>
-</section>
-
-<section class="block" id="s-gmail-account">
-  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑮</span> <span class="pill">선택</span></p>
-  <h3>개인 Gmail로 학생 확인하기</h3>
-  <div class="prompt">
-<pre>학번 대신 학생의 개인 Gmail 이메일로 누가 냈는지 기록하게 바꿔 줘. 바뀐 파일은 전체를 다시 줘.
-- 내 이메일이 아니라 제출한 학생 본인의 이메일이 기록돼야 해
-- 시트 맨 왼쪽에 이메일 칸을 새로 만들어 줘
-- 이메일을 못 가져오면 지금처럼 학번을 입력하게 해 줘
-- 학생 화면 맨 위에 어떤 계정으로 제출하는지 보여 줘
-- 처음 접속할 때 나오는 권한 허용 화면을 학생에게 어떻게 안내할지도 알려 줘</pre>
-  </div>
-  <ul class="plain">
-    <li>배포 설정: 실행은 ‘앱에 액세스하는 사용자’, 액세스는 ‘Google 계정이 있는 모든 사용자’</li>
-    <li>처음 접속하면 ‘확인되지 않은 앱’ 경고가 뜹니다. ‘고급 → 이동’을 눌러 허용하게 안내하세요.</li>
-  </ul>
-  <p class="warn">학생이 기록하려면 시트를 학생에게 편집자로 공유해야 해서, 다른 학생의 답도 볼 수 있습니다.</p>
-</section>
-
 <section class="block" id="s-arch">
-  <p class="label">3부 · ② GitHub · Firebase · Apps Script</p>
+  <p class="label">3부 · ③ 학교 계정</p>
   <h3>화면은 GitHub, 로그인은 Firebase, 저장은 Apps Script</h3>
   <div class="cards three">
     <div class="card"><b>GitHub Pages</b><small>학생이 여는 주소</small><p>index.html 한 파일을 올림 · 문제 화면·제출 버튼 담당</p></div>
@@ -861,14 +752,14 @@
 </section>
 
 <section class="block" id="s-firebase">
-  <p class="label">3부 · ② Firebase <span class="pill">따라 하기 ⑯</span></p>
+  <p class="label">3부 · ③ Firebase <span class="pill">따라 하기 ⑭</span></p>
   <h3>Firebase: 프로젝트 만들고 Google 로그인 켜기</h3>
   <ol class="steps big-steps">
     <li><b>프로젝트 만들고 내 앱 등록</b>
       <ul>
         <li><a href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a> → [프로젝트 만들기] → 이름 입력 (애널리틱스는 꺼도 됨)</li>
         <li>프로젝트 개요의 웹 아이콘(&lt;/&gt;) → 앱 닉네임 입력 → Hosting은 체크하지 않고 [앱 등록]</li>
-        <li>화면에 나온 설정값 <code>{ … }</code> 묶음을 통째로 메모장에 복사 (projectId도 이 안에 있음)</li>
+        <li>이어서 나오는 설정값 <code>{ … }</code> 묶음 복사 → 다음 장에서 자세히</li>
       </ul>
     </li>
     <li><b>Google 로그인 사용 설정</b>
@@ -878,11 +769,28 @@
       </ul>
     </li>
   </ol>
-  <p class="tip">복사한 설정값은 다음 프롬프트에 그대로 붙입니다. apiKey, authDomain, projectId 등이 든 <code>{ … }</code> 묶음 전체를 복사합니다. 웹페이지에 원래 공개되는 값이라 Claude에 붙여 넣어도 괜찮습니다. 승인된 도메인 추가는 GitHub 주소가 생긴 뒤 12단계에서 합니다.</p>
+  <p class="tip">설정값 복사는 다음 장 화면에서 봅니다. apiKey, authDomain, projectId 등이 든 <code>{ … }</code> 묶음 하나만 챙기면 됩니다.</p>
+  <p class="fine">Hosting은 쓰지 않습니다. 화면은 GitHub Pages에 올립니다. 승인된 도메인 추가는 GitHub 주소가 생긴 뒤 12단계에서 합니다.</p>
+</section>
+
+<section class="block" id="s-firebase-config">
+  <p class="label">3부 · ③ Firebase <span class="pill">따라 하기 ⑭ 보충</span></p>
+  <h3>1단계 이어서: Firebase 설정값 복사하기</h3>
+  <div class="split">
+    <ol class="steps sub-steps">
+      <li data-n="1-1"><b>[앱 등록]</b> 후 바로 열리는 <b>Firebase SDK 추가</b> 화면</li>
+      <li data-n="1-2"><b>npm 사용</b>이 선택된 그대로 두고 아래 코드 상자 보기</li>
+      <li data-n="1-3"><code>const firebaseConfig = { … }</code> 부분만 복사</li>
+      <li data-n="1-4">메모장에 붙여 두고 <b>프롬프트 ①</b>에 그대로 사용</li>
+      <li data-n="다시">창을 닫았다면 <b>프로젝트 설정 → 내 앱 → 구성(Config)</b></li>
+    </ol>
+    <figure><img src="assets/img/firebase-config.png" alt="Firebase SDK 추가 화면" loading="lazy"></figure>
+  </div>
+  <p class="tip"><b>안심하고 붙여 넣기</b> · Firebase apiKey는 웹페이지에 원래 공개되는 값입니다. 비밀로 지킬 키는 Gemini API 키뿐입니다.</p>
 </section>
 
 <section class="block" id="s-prompt1">
-  <p class="label">3부 · ② GitHub · Firebase · Apps Script <span class="pill">따라 하기 ⑰</span></p>
+  <p class="label">3부 · ③ 학교 계정 <span class="pill">따라 하기 ⑮</span></p>
   <h3>프롬프트 ①: 바뀐 Code.gs부터 받기</h3>
   <div class="prompt">
 <pre>학생 화면은 GitHub에 올리고 로그인은 Firebase로 바꾸려고 해. 먼저 바뀐 Code.gs 전체만 줘.
@@ -899,7 +807,7 @@
 </section>
 
 <section class="block" id="s-new-codegs">
-  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑱</span></p>
+  <p class="label">3부 · ③ Apps Script <span class="pill">따라 하기 ⑯</span></p>
   <h3>Apps Script: 새 Code.gs로 바꾸고 주소 받기</h3>
   <ol class="steps big-steps" start="3">
     <li><b>Code.gs 바꿔 넣기</b>
@@ -926,7 +834,7 @@
 </section>
 
 <section class="block" id="s-prompt2">
-  <p class="label">3부 · ② GitHub · Firebase · Apps Script <span class="pill">따라 하기 ⑲</span></p>
+  <p class="label">3부 · ③ 학교 계정 <span class="pill">따라 하기 ⑰</span></p>
   <h3>프롬프트 ②: 주소까지 들어간 index.html 받기</h3>
   <div class="prompt">
 <pre>Code.gs 배포했어. 이제 GitHub에 올릴 index.html 전체를 줘.
@@ -943,7 +851,7 @@
 </section>
 
 <section class="block" id="s-github">
-  <p class="label">3부 · ② GitHub</p>
+  <p class="label">3부 · ④ GitHub</p>
   <h3>GitHub은 버전 기록이 남는 공유 드라이브</h3>
   <p>웹에서 직접 올리거나, Claude에게 올려 달라고 합니다. 올릴 때마다 저장 지점이 남아 실수해도 되돌릴 수 있습니다.</p>
   <div class="cards four">
@@ -952,7 +860,7 @@
     <div class="card"><b>푸시</b><small>Push</small><p>커밋을 GitHub에 올리기 · 웹에서는 Upload files</p></div>
     <div class="card"><b>풀</b><small>Pull</small><p>GitHub 최신본을 받아오기 · 웹에서는 파일 내려받기</p></div>
   </div>
-  <p class="tip">Claude에 GitHub 커넥터를 연결하면 챗에서 바로 올릴 수 있습니다. 명령어는 외우지 않고 말로 요청합니다.</p>
+  <p class="tip">Claude에 GitHub 커넥터를 연결하면 챗에서 바로 올릴 수 있습니다. 챗에서 “고친 내용 커밋하고 푸시해 줘”라고 하면 됩니다. 연결 방법은 <a href="#s-gh-connector">따라 하기 ⑲</a>에 있습니다.</p>
   <div class="chips">
     <button class="chip" data-copy="지금까지 작업 커밋해 줘">지금까지 작업 커밋해 줘</button>
     <button class="chip" data-copy="고친 내용 커밋하고 푸시해 줘">고친 내용 커밋하고 푸시해 줘</button>
@@ -960,8 +868,24 @@
   </div>
 </section>
 
+<section class="block" id="s-terms">
+  <p class="label">3부 · ④ GitHub · 기본 용어</p>
+  <h3>GitHub 용어는 이 네 가지만 알면 됩니다</h3>
+  <div class="table-wrap"><table class="terms">
+    <thead><tr><th>용어</th><th>뜻</th><th>쉽게 말하면</th></tr></thead>
+    <tbody>
+      <tr><td>저장소<small>Repository</small></td><td>홈페이지 파일과 바뀐 기록을 모두 담는 폴더</td><td><b>과목별 자료 폴더</b><small>앱 하나에 저장소 하나</small></td></tr>
+      <tr><td>커밋<small>Commit</small></td><td>바뀐 내용을 설명 한 줄과 함께 저장 지점으로 남기기</td><td><b>날짜 붙은 저장본</b><small>이 시점으로 되돌릴 수 있음</small></td></tr>
+      <tr><td>푸시<small>Push</small></td><td>만든 커밋을 GitHub 저장소로 올려 보내기</td><td><b>제출함에 넣기</b><small>올라가야 홈페이지에 반영</small></td></tr>
+      <tr><td>브랜치 main<small>Branch</small></td><td>커밋이 이어지는 작업 줄기, 오늘은 main 하나만</td><td><b>원본 줄기</b><small>Pages는 main을 보여 줌</small></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip"><b>한 번에</b> · 웹의 Upload files나 Claude 커넥터로 올리면 커밋과 푸시가 한 번에 일어납니다.</p>
+  <p class="fine">GitHub Pages는 저장소 main 브랜치의 파일을 웹 주소로 보여 주는 기능입니다. 주소 규칙은 다음 장에서 봅니다.</p>
+</section>
+
 <section class="block" id="s-pages-url">
-  <p class="label">3부 · ② GitHub Pages</p>
+  <p class="label">3부 · ④ GitHub Pages</p>
   <h3>GitHub Pages 주소는 사용자 이름과 저장소 이름으로 정해집니다</h3>
   <div class="url-diagram">
     <span class="u-fixed">https://</span><span class="u-part a">사용자이름<small>GitHub 계정 · 가입할 때 정하는 이름</small></span><span class="u-fixed">.github.io/</span><span class="u-part b">저장소이름<small>앱 하나에 저장소 하나</small></span><span class="u-fixed">/</span><span class="u-part c">index.html<small>이 이름이어야 주소만으로 바로 열림</small></span>
@@ -970,7 +894,7 @@
 </section>
 
 <section class="block" id="s-gh-account">
-  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ⑳</span></p>
+  <p class="label">3부 · ④ GitHub <span class="pill">따라 하기 ⑱</span></p>
   <h3>GitHub: 계정 만들고 사용자 이름 정하기</h3>
   <ol class="steps big-steps" start="6">
     <li><b>GitHub 계정 만들기</b>
@@ -993,7 +917,7 @@
 </section>
 
 <section class="block" id="s-gh-connector">
-  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ㉑</span></p>
+  <p class="label">3부 · ④ GitHub <span class="pill">따라 하기 ⑲</span></p>
   <h3>GitHub: Claude에 커넥터로 연결하기</h3>
   <ol class="steps big-steps" start="8">
     <li><b>커넥터에서 GitHub 추가하기</b>
@@ -1023,7 +947,7 @@
 </section>
 
 <section class="block" id="s-gh-upload">
-  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ㉒</span></p>
+  <p class="label">3부 · ④ GitHub <span class="pill">따라 하기 ⑳</span></p>
   <h3>GitHub: index.html 올리고 로그인 허용하기</h3>
   <ol class="steps big-steps" start="11">
     <li><b>저장소 만들고 웹사이트로 공개하기</b>
@@ -1046,7 +970,7 @@
 </section>
 
 <section class="block" id="s-verify">
-  <p class="label">3부 · ② 확인하기 <span class="pill">따라 하기 ㉓</span></p>
+  <p class="label">3부 · ④ 확인하기 <span class="pill">따라 하기 ㉑</span></p>
   <h3>학생 계정으로 제출해 보고 확인하기</h3>
   <ol class="steps big-steps" start="13">
     <li><b>시크릿 창에서 학생처럼 제출</b>
@@ -1090,70 +1014,46 @@
 <section class="part-head" id="p4">
   <p class="num">4부</p>
   <h2>GitHub로 만드는 수업 홈페이지</h2>
-  <p>배부한 기본 틀을 GitHub에 올려 내 수업 홈페이지를 만들고, 3부에서 만든 앱을 카드로 연결합니다</p>
+  <p>배부한 기본 틀을 GitHub에 올리고, Claude로 내 수업에 맞게 디자인한 뒤 커넥터로 다시 올립니다</p>
 </section>
 
-<section class="block" id="s-showcase">
-  <p class="label">4부 · 수업 홈페이지</p>
-  <h3>홈페이지는 앱을 모아 두는 진열장입니다</h3>
-  <div class="cards three">
-    <div class="card"><b>홈페이지 저장소</b><small>math-class</small><p>기본 틀을 올리는 저장소 · 주소 끝이 /math-class/</p></div>
-    <div class="card"><b>카드 목록</b><small>site-config.js</small><p>홈페이지 이름과 앱 카드를 이 파일 하나에서 관리합니다</p></div>
-    <div class="card"><b>앱</b><small>폴더 또는 저장소</small><p>같은 저장소 → <code>./폴더이름/</code> · 다른 저장소 → 전체 주소</p></div>
+<section class="block" id="s-flow4">
+  <p class="label">4부 · 흐름</p>
+  <h3>처음은 내가 올리고, 그다음부터는 Claude가 올립니다</h3>
+  <div class="cards four flow4">
+    <div class="card"><span class="big-num">1</span><small>따라 하기 ①②</small><b>저장소에 기본 틀 올리기</b><p>Upload files로 올리면 첫 커밋이 생깁니다</p><em>내가 · GitHub 웹</em></div>
+    <div class="card"><span class="big-num">2</span><small>따라 하기 ③</small><b>GitHub Pages 켜기</b><p>저장소가 홈페이지 주소를 갖습니다</p><em>내가 · GitHub 웹</em></div>
+    <div class="card accent"><span class="big-num">3</span><small>따라 하기 ④</small><b>내 수업에 맞게 디자인</b><p>색, 글꼴, 소개 문구를 미리 보며 고칩니다</p><em>Claude가 · 대화</em></div>
+    <div class="card accent"><span class="big-num">4</span><small>따라 하기 ⑤⑥</small><b>커밋하고 푸시하기</b><p>나는 커밋 기록과 바뀐 주소만 확인합니다</p><em>Claude가 · 커넥터</em></div>
   </div>
-  <p class="tip"><b>오늘 할 일:</b> 저장소 만들기 → 기본 틀 올리기 → Pages 켜기 → 이름 바꾸기 → 3부 앱 카드 연결 → 점검·QR</p>
-  <p class="fine">홈페이지와 3부 앱이 같은 아이디.github.io 주소라 Firebase 승인 도메인은 다시 추가하지 않아도 됩니다.</p>
-</section>
-
-<section class="block" id="s-template">
-  <p class="label">4부 · 기본 틀</p>
-  <h3>고치는 파일은 site-config.js 하나입니다</h3>
-  <p>나눠 드린 zip의 ‘홈페이지-기본틀’ 폴더입니다. <a class="inline-link" href="#files">자료실</a> 화면·동작·디자인이 파일별로 나뉘어 있어 앱이 늘어나도 관리가 쉽습니다.</p>
-  <div class="table-wrap"><table>
-    <thead><tr><th>파일</th><th>하는 일</th><th></th></tr></thead>
-    <tbody>
-      <tr class="hl"><td><code>site-config.js</code></td><td>홈페이지 이름, 소개 문구, 앱 카드 목록</td><td>✏️ 여기만 고칩니다</td></tr>
-      <tr><td><code>index.html</code> · <code>script.js</code></td><td>메인 화면 뼈대, 검색·과목 필터·QR</td><td>고치지 않습니다</td></tr>
-      <tr><td><code>style.css</code></td><td>색, 글꼴, 여백 등 홈페이지 모양</td><td>색을 바꿀 때만</td></tr>
-      <tr><td><code>app-template</code></td><td>새 앱의 빈 틀과 예시 앱 linear-function</td><td>앱 하나 = 폴더 하나</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fine">thumbnails 폴더에 앱폴더이름.png를 넣으면 카드에 썸네일이 자동으로 붙습니다. CLAUDE.md는 Claude Code가 읽는 작업 지침입니다. 연수 뒤 앱을 늘릴 때 Claude Code에 맡기면 이 규칙대로 작업합니다.</p>
+  <p class="tip"><b>커넥터</b> · 3부 <a href="#s-gh-connector">따라 하기 ⑲</a>에서 연결한 GitHub 커넥터를 그대로 씁니다. 다시 연결할 필요가 없습니다.</p>
 </section>
 
 <section class="block" id="s-repo">
   <p class="label">4부 · GitHub <span class="pill">따라 하기 ①</span></p>
-  <h3>GitHub 저장소 만들기</h3>
+  <h3>홈페이지용 새 저장소 만들기</h3>
   <ol class="steps">
     <li>github.com 오른쪽 위 <b>[+] → New repository</b></li>
-    <li>이름 <code>math-class</code>, <b>Public</b>, 체크 항목 없음</li>
+    <li>이름 <code>math-lab</code>, <b>Public</b> · 3부 앱 저장소와 따로</li>
     <li><b>Create repository</b> 누르기</li>
-    <li>빈 저장소 화면이 나오면 다음 단계로</li>
+    <li>빈 저장소 화면이 나오면 다음 장으로</li>
   </ol>
 </section>
 
-<section class="block" id="s-upload-template">
+<section class="block" id="s-first-commit">
   <p class="label">4부 · GitHub <span class="pill">따라 하기 ②</span></p>
-  <h3>기본 틀 올리고 되돌리기</h3>
-  <div class="cards two">
-    <div class="card"><b>기본 틀 올리기</b>
-      <ol class="inner">
-        <li>빈 저장소 화면 [uploading an existing file]</li>
-        <li>압축을 푼 ‘홈페이지-기본틀’ 폴더 열기</li>
-        <li>안의 파일과 폴더를 모두 선택해 끌어다 놓기</li>
-        <li>메시지 칸에 ‘기본 틀 첫 업로드’ 쓰기</li>
-        <li>[Commit changes] 누르기</li>
-      </ol>
-    </div>
-    <div class="card"><b>고치고 되돌리기</b>
-      <ul class="inner">
-        <li>고친 파일을 같은 이름으로 다시 올리기 — 같은 이름의 파일은 덮어쓰고, 이전 모습은 커밋 기록에 남습니다.</li>
-        <li>site-config.js → [History] → 되돌릴 커밋의 파일 내려받아 다시 올리기</li>
-        <li>커밋한 모습 그대로 돌아오면 성공입니다. 올릴 때마다 무엇을 바꿨는지 메시지로 남깁니다.</li>
-      </ul>
-    </div>
+  <h3>기본 틀 파일 올리기: 첫 커밋</h3>
+  <div class="split">
+    <ol class="steps">
+      <li>배부한 <b>홈페이지-기본틀.zip</b> 압축 풀기 <a class="inline-link" href="#files">자료실</a></li>
+      <li>저장소 화면 <b>Add file → Upload files</b></li>
+      <li>폴더 <b>안의</b> 파일과 폴더를 모두 끌어다 놓기</li>
+      <li>설명 칸에 <b>첫 홈페이지 올리기</b> 입력</li>
+      <li class="dark"><b>Commit changes</b> 누르기 → 첫 커밋 완료</li>
+    </ol>
+    <figure><img src="assets/img/upload-files.png" alt="저장소에 기본 틀 파일을 올린 화면" loading="lazy"></figure>
   </div>
-  <p class="warn">폴더째가 아니라 <b>내용물을!</b> 첫 화면에 index.html이 보이면 성공입니다.</p>
+  <p class="warn">폴더째가 아니라 <b>내용물을</b> 올립니다. 첫 화면에 index.html이 보이면 성공입니다.</p>
 </section>
 
 <section class="block" id="s-pages-on">
@@ -1164,79 +1064,52 @@
     <li>Source <b>Deploy from a branch</b></li>
     <li>Branch <b>main</b>, <b>/ (root)</b> → Save</li>
     <li>1~2분 뒤 <b>Your site is live at</b> 확인</li>
-    <li>스마트폰으로 <code>아이디.github.io/math-class/</code> 열기</li>
+    <li>스마트폰으로 <code>아이디.github.io/math-lab/</code> 열기</li>
     <li>예시 카드 ‘일차함수 그래프 탐구’가 열리는지 확인</li>
   </ol>
 </section>
 
-<section class="block" id="s-config-name">
-  <p class="label">4부 · 수업 홈페이지 <span class="pill">따라 하기 ④</span></p>
-  <h3>site-config.js에서 내 이름으로 바꾸기</h3>
-  <div class="split">
-    <ol class="steps">
-      <li><b>site-config.js</b> 클릭</li>
-      <li>오른쪽 위 연필(✏️) 클릭</li>
-      <li>따옴표 안 글자만 바꾸기</li>
-      <li><b>Commit changes</b> → 1분 뒤 새로 고침</li>
-    </ol>
-    <div class="code" data-title="site-config.js">
-<pre>const SITE = {
-  name: "<em>김수학쌤의 수학 실험실</em>",
-  englishName: "<em>MATHEMATICS LABORATORY</em>",
-  eyebrow: "<em>수학 수업용 인터랙티브 도구</em>",
-  heroLine1: "<em>수학을</em>",
-  heroHighlight: "<em>직접</em>",
-  heroLine2: "<em>만져보다</em>",
-  ...</pre>
+<section class="block" id="s-design">
+  <p class="label">4부 · 디자인 <span class="pill">따라 하기 ④</span></p>
+  <h3>Claude로 내 수업 홈페이지 디자인하기</h3>
+  <div class="split wide-left">
+    <div class="prompt">
+<pre>GitHub 커넥터로 [내 아이디]/math-lab 저장소의
+홈페이지 파일을 읽고 아래처럼 바꿔 줘.
+- 이름: 사이트 제목을 [김○○ 선생님의 수학 교실]로
+- 디자인: [차분한 초록] 색, 제목은 손글씨 느낌 글꼴
+- 모션: 첫 화면 제목은 천천히 나타나게
+- 모션: 카드는 마우스를 올리면 살짝 떠오르게
+- 카드 구조와 class 이름은 그대로
+- 올리기 전에 아티팩트로 먼저 보여 줘</pre>
+    </div>
+    <div class="cards">
+      <div class="card"><small>미리 보기</small><b>올리기 전에 눈으로 확인</b><p>마음에 들 때까지 아티팩트에서 고칩니다</p></div>
+      <div class="card accent"><small>고치는 요령</small><b>한 번에 하나씩 요청</b><p>“제목을 더 크게”처럼 짧게 말할수록 정확합니다</p></div>
     </div>
   </div>
-  <p class="warn">따옴표(" ")와 쉼표(,)를 지우면 화면이 하얗게 나옵니다. 그대로 두고 글자만 바꿉니다.</p>
 </section>
 
-<section class="block" id="s-config-card">
-  <p class="label">4부 · 수업 홈페이지 <span class="pill">따라 하기 ⑤</span></p>
-  <h3>3부에서 만든 앱을 카드로 연결하기</h3>
-  <div class="split">
-    <ol class="steps">
-      <li>예시 덩어리 앞의 <code>//</code> 지우기</li>
-      <li>url에 3부 github.io 주소</li>
-      <li>subject는 과목 버튼 이름 그대로</li>
-      <li>Commit → 카드 2개 확인</li>
-    </ol>
-    <div class="code" data-title="site-config.js">
-<pre>const TOOLS = [
-  { … 일차함수 그래프 탐구 … },
-  {
-    title: "<em>삼각함수 그래프 그리기</em>",
-    subject: "<em>대수</em>",
-    url: "<em>https://아이디.github.io/저장소/</em>",
-    …
-  }
-];</pre>
+<section class="block" id="s-push">
+  <p class="label">4부 · 커넥터 <span class="pill">따라 하기 ⑤</span></p>
+  <h3>Claude에게 커밋과 푸시 맡기기</h3>
+  <div class="split wide-left">
+    <div class="prompt">
+<pre>방금 확정한 디자인을 GitHub 커넥터로 math-lab 저장소의 main에 올려 줘.
+- 바뀐 파일만 올리고 나머지는 건드리지 마
+- 올리기 전에 바꿀 파일 목록부터 보여 줘
+- 커밋 메시지: "홈페이지 디자인 변경: 초록 테마"
+- 다 올리면 커밋 주소를 알려 줘</pre>
     </div>
-  </div>
-  <p class="warn">/exec로 끝나는 Apps Script 주소가 아니라 github.io 주소를 넣습니다. 같은 저장소 안의 앱은 <code>"./폴더이름/"</code>으로 씁니다.</p>
-</section>
-
-<section class="block" id="s-check">
-  <p class="label">4부 · GitHub Pages <span class="pill">따라 하기 ⑥</span></p>
-  <h3>학생에게 알리기 전에 Claude에게 점검받기</h3>
-  <p>site-config.js 파일을 첨부하고 보냅니다.</p>
-  <div class="prompt">
-<pre>첨부한 site-config.js는 GitHub Pages로 공개한 내 수업 홈페이지의 설정 파일이야. 다음을 점검해 줘. 고치지 말고 결과만 알려 줘.
-- 쉼표·따옴표·괄호가 빠진 곳이 없는지
-- 앱 url이 "./폴더이름/" 또는 https://…github.io/… 형식인지
-- subject가 SUBJECT_GROUPS의 과목 이름과 같은지
-- API 키, 학생 이름·학번 같은 정보가 들어 있지 않은지</pre>
-  </div>
-  <div class="cards two">
-    <div class="card"><b>공개돼도 괜찮음</b><p>github.io 주소 · 웹 앱 URL — 누가 쓸 수 있는지는 배포 설정이 정합니다</p></div>
-    <div class="card danger"><b>절대 공개 금지</b><p>Gemini API 키 — Apps Script 스크립트 속성에만 넣습니다</p></div>
+    <div class="cards">
+      <div class="card"><small>허용 창</small><b>도구 사용 허용 누르기</b><p>GitHub에 쓰기 전에 Claude가 허용을 묻습니다</p></div>
+      <div class="card accent"><small>커밋 메시지</small><b>무엇을 바꿨는지 한 줄로</b><p>되돌릴 때 이 설명으로 시점을 찾습니다</p></div>
+    </div>
   </div>
 </section>
 
 <section class="block" id="s-qr">
-  <p class="label">4부 · 확인하기 <span class="pill">따라 하기 ⑦</span></p>
+  <p class="label">4부 · 확인하기 <span class="pill">따라 하기 ⑥</span></p>
   <h3>QR로 나눠 주고, 막히면 여기부터</h3>
   <ol class="steps big-steps">
     <li><b>QR로 학생에게 나누기</b>
@@ -1250,7 +1123,7 @@
   <div class="table-wrap"><table class="trouble">
     <thead><tr><th>증상</th><th>확인할 곳</th></tr></thead>
     <tbody>
-      <tr><td>주소가 …/math-class/홈페이지-기본틀/ 처럼 깊음</td><td>폴더째 올림. 내용물만 다시 올리기</td></tr>
+      <tr><td>주소가 …/math-lab/홈페이지-기본틀/ 처럼 깊음</td><td>폴더째 올림. 내용물만 다시 올리기</td></tr>
       <tr><td>화면이 하얗거나 카드가 0개</td><td>site-config.js의 쉼표·따옴표 (F12 → Console의 줄 번호)</td></tr>
       <tr><td>카드는 있는데 열면 404</td><td>url 철자와 끝의 / 확인</td></tr>
       <tr><td>과목 버튼으로 안 걸러짐</td><td>subject를 과목 버튼 이름과 똑같이 (Ⅰ·Ⅱ는 로마숫자 기호)</td></tr>
@@ -1259,21 +1132,6 @@
     </tbody>
   </table></div>
   <p class="tip">학생에게는 홈페이지 주소 하나만 나누면 됩니다. 앱이 늘어나도 주소는 그대로이고, 카드만 늘어납니다.</p>
-</section>
-
-<section class="block" id="s-after">
-  <p class="label">4부 · 더 해 보기 <span class="pill">선택</span></p>
-  <h3>연수 뒤에: 새 앱을 내 홈페이지에 올리기</h3>
-  <p>app-template/index.html을 첨부하고 보냅니다.</p>
-  <div class="prompt" data-title="앱 올리기">
-<pre>첨부한 app-template/index.html은 내 수학 수업 홈페이지의 앱 기본 틀이야. 이 틀로 아래 앱을 HTML 파일 하나로 만들어 줘.
-- 과목·단원: [확률과 통계 · 통계적 확률]
-- 활동: [주사위를 여러 번 던져 상대도수가 1/6에 가까워지는 모습 관찰]
-- 상단바·색상·홈 링크(../#tools)는 그대로 두고, 앱 코드는 ‘도구 전용’ 영역에만
-- 휴대폰에서도 쓸 수 있게</pre>
-  </div>
-  <p class="tip"><b>폴더 하나 = 앱 하나</b> · <code>probability/index.html</code>로 올리고 TOOLS에 <code>"./probability/"</code> 등록</p>
-  <p class="tip"><b>디자인 바꾸기</b> · style.css를 첨부해서 요청하되, <code>:root</code> 색상만 바꾸고 class 이름은 그대로 두라고 합니다.</p>
 </section>
 
 <!-- ================= 마무리 ================= -->
@@ -1352,6 +1210,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
 
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
 </body>
 </html>

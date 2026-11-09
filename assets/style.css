@@ -608,3 +608,21 @@ body.paged main > section.block.question.cur{display:flex;flex-direction:column;
   .files .file-main{flex:1 1 calc(100% - 60px)}
   .files .file-dl{margin-left:58px}
 }
+
+/* 새 슬라이드 요소 */
+.sub-steps > li{counter-increment:none;padding-left:72px}
+.sub-steps > li::before{content:attr(data-n);width:auto;min-width:36px;padding:0 7px;border-radius:12px;font-size:11.5px}
+.steps > li.dark{background:var(--dark);color:#fff}
+.steps > li.dark b{color:#fff}
+.flow4 .card{position:relative;padding:60px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.flow4 .big-num{top:14px;left:18px;font-size:34px}
+.flow4 .card > small{color:var(--accent-ink);font-weight:700;margin:0}
+.flow4 .card.accent > small{color:var(--accent)}
+.flow4 .card em{font-style:normal;font-size:12.5px;font-weight:700;margin-top:auto;padding-top:10px}
+.flow4 .card.accent em{color:#fff}
+.cards .card > small:first-child{color:var(--accent-ink);font-weight:700;font-size:12px}
+.cards .card.accent > small:first-child{color:var(--accent)}
+table.terms td small{display:block;color:var(--accent-ink);font-weight:600;font-size:12px}
+table.terms td:last-child{text-align:right}
+table.terms td:last-child small{color:var(--ink-3);font-weight:400}
+@media (max-width:600px){table.terms td:last-child{text-align:left}}
