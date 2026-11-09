@@ -218,6 +218,8 @@
   var all = Array.prototype.slice.call(main.children).filter(function (el) { return el.tagName === "SECTION"; });
   var pages = [];
   var cur = 0;
+  var offset = 0; /* 자료실은 번호 없이, 표지부터 1번 */
+  function numOf(i) { return i < offset ? "자료" : String(i - offset + 1); }
 
   var prevBtn = document.getElementById("prevBtn");
   var nextBtn = document.getElementById("nextBtn");
@@ -246,14 +248,15 @@
       if (!only) return true;
       return s.classList.contains("has-prompt");
     });
-    pgTotal.textContent = pages.length;
+    offset = pages.filter(function (s) { return s.classList.contains("files"); }).length;
+    pgTotal.textContent = pages.length - offset;
     tocList.innerHTML = "";
     pages.forEach(function (s, i) {
       var li = document.createElement("li");
       if (s.classList.contains("part-head")) li.className = "part";
       var b = document.createElement("button");
       b.type = "button";
-      b.innerHTML = '<span class="n">' + (i + 1) + "</span><span></span>";
+      b.innerHTML = '<span class="n">' + numOf(i) + "</span><span></span>";
       b.lastChild.textContent = titleOf(s);
       b.addEventListener("click", function () { closeToc(); go(i); });
       li.appendChild(b);
@@ -271,7 +274,7 @@
     void s.offsetWidth;
     s.classList.add(dir < 0 ? "in-prev" : "in-next");
     cur = i;
-    pgNow.textContent = i + 1;
+    pgNow.textContent = numOf(i);
     prevBtn.disabled = i === 0;
     nextBtn.disabled = i === pages.length - 1;
     bar.style.width = ((i + 1) / pages.length * 100) + "%";
