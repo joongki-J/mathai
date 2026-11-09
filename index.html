@@ -7,9 +7,8 @@
 <meta name="description" content="중등 교사 연수 웹 교재 — 프롬프트를 복사해 바로 붙여넣고, 연수 자료를 내려받을 수 있습니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="assets/style.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 <body>
 
@@ -33,42 +32,9 @@
 
 <main id="top">
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="cover">
-  <div class="hero-text">
-    <p class="eyebrow">중등 교사 연수 · 웹 교재</p>
-    <h1>Claude로 만드는<br>나만의 수학 수업<br>도구와 홈페이지</h1>
-    <p class="lead">스킬부터 학생 응답을 모으는 웹앱, GitHub 배포까지 따라 하며 만듭니다.</p>
-    <p class="meta">대구미래교육연구원 · 정중기 · 2026.11.10.(화)</p>
-  </div>
-  <div class="hero-howto">
-    <h2>이 페이지 쓰는 법</h2>
-    <ol>
-      <li>아래 <b>[다음 ›]</b> 버튼이나 키보드 ←/→로 넘깁니다. 휴대폰은 옆으로 밀면 됩니다. 가운데 쪽수를 누르면 목차가 열립니다.</li>
-      <li><span class="mini-prompt">프롬프트</span> 상자 오른쪽 위 <b>[복사]</b>를 누르고 Claude 입력창에 붙여넣습니다.</li>
-      <li><mark class="ph">[대괄호]</mark>로 표시된 부분은 내 상황에 맞게 바꿔서 보냅니다.</li>
-      <li>위쪽 <b>프롬프트만</b> 스위치를 켜면 설명은 접고 프롬프트만 모아 볼 수 있습니다.</li>
-      <li>실습에 쓰는 파일은 <a href="#files">자료실</a>에서 내려받습니다.</li>
-    </ol>
-  </div>
-</section>
-
-<!-- ================= 개요 ================= -->
-<section class="block overview" id="overview">
-  <p class="label">연수 개요</p>
-  <h2>오늘의 흐름</h2>
-  <div class="parts">
-    <a class="part dark" href="#p1"><span class="num">1부</span><b>Claude 이해하기</b><span>웹과 데스크톱 앱의 차이, 켜 두면 좋은 설정, 수업 현장에서 지킬 원칙</span></a>
-    <a class="part" href="#p2"><span class="num">2부</span><b>기본 기능 따라 하기</b><span>스킬, 커넥터, 플러그인, 프로젝트, 아티팩트</span></a>
-    <a class="part" href="#p3"><span class="num">3부</span><b>학생 데이터가 쌓이는 웹앱</b><span>Apps Script와 AI 피드백, 학교 계정으로 학생 확인</span></a>
-    <a class="part" href="#p4"><span class="num">4부</span><b>GitHub와 수업 홈페이지</b><span>기본 틀로 내 홈페이지를 공개하고 오늘 만든 앱 연결하기</span></a>
-  </div>
-  <p class="note">하나의 앱, <b>삼각함수 그래프 그리기</b>를 단계마다 키워 가며 진행합니다.</p>
-</section>
-
 <!-- ================= 자료실 ================= -->
 <section class="block files" id="files">
-  <p class="label">자료실</p>
+  <p class="label">중등 교사 연수 · 자료실</p>
   <h2>연수 자료 내려받기</h2>
   <p class="sub">실습에 쓰는 스킬 zip, 플러그인, 홈페이지 기본 틀, 발표 슬라이드를 여기서 받습니다.</p>
   <div class="file-tools">
@@ -83,6 +49,15 @@
     <p>설치 파일을 바로 받으려면 아래 목록의 「Claude 데스크톱앱 설치 Windows」를 누르세요.</p>
   </div>
   <ul class="file-list" id="fileList"><li class="file-empty">자료 목록을 불러오는 중…</li></ul>
+  <details class="howto">
+  <summary>이 페이지 쓰는 법</summary>
+  <ol>
+    <li>아래 <b>[다음 ›]</b> 버튼이나 키보드 ←/→로 넘깁니다. 휴대폰은 옆으로 밀면 됩니다. 가운데 쪽수를 누르면 목차가 열립니다.</li>
+    <li><span class="mini-prompt">프롬프트</span> 상자 오른쪽 위 <b>[복사]</b>를 누르고 Claude 입력창에 붙여넣습니다.</li>
+    <li><mark class="ph">[대괄호]</mark>로 표시된 부분은 내 상황에 맞게 바꿔서 보냅니다.</li>
+    <li>위쪽 <b>프롬프트만</b> 스위치를 켜면 설명은 접고 프롬프트만 모아 볼 수 있습니다.</li>
+  </ol>
+  </details>
   <details class="admin">
     <summary>강사용 · 자료 올리는 방법</summary>
     <ol>
@@ -93,6 +68,42 @@
     </ol>
     <p>파일 이름 앞에 <code>01_</code>, <code>02_</code>처럼 번호를 붙이면 그 순서대로 보입니다. 번호는 목록에서 감춰집니다.</p>
   </details>
+</section>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="cover">
+  <div class="hero-text">
+    <p class="eyebrow">중등 교사 연수</p>
+    <h1>Claude로 만드는<br>나만의 수학 수업<br>도구와 홈페이지</h1>
+    <p class="lead">스킬부터 학생 응답을 모으는 웹앱, GitHub 배포까지 따라 하며 만듭니다.</p>
+    <p class="meta">대구미래교육연구원 · 정중기 · 2026.11.10.(화)</p>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="mock">
+      <div class="mock-bar"><i></i><i></i><i></i><span>teacher.github.io/math-class</span></div>
+      <div class="mock-body">
+        <p class="mock-q"><b>문제 1</b>y = 2x + 1의 기울기는?</p>
+        <div class="mock-input"><span>2</span><em>제출</em></div>
+        <p class="mock-live">실시간 응답 · 28명</p>
+        <div class="mock-chart"><span style="height:22%"></span><span class="hi" style="height:88%"></span><span style="height:14%"></span><span style="height:9%"></span></div>
+        <div class="mock-axis"><span>①</span><span>②</span><span>③</span><span>④</span></div>
+      </div>
+    </div>
+    <span class="mock-pill">GitHub Pages로 배포</span>
+  </div>
+</section>
+
+<!-- ================= 개요 ================= -->
+<section class="block overview" id="overview">
+  <p class="label">연수 개요</p>
+  <h2>오늘의 흐름</h2>
+  <div class="parts">
+    <a class="part dark" href="#p1"><span class="num">1부</span><b>Claude 이해하기</b><span>웹과 데스크톱 앱의 차이, 켜 두면 좋은 설정, 수업 현장에서 지킬 원칙</span></a>
+    <a class="part" href="#p2"><span class="num">2부</span><b>기본 기능 따라 하기</b><span>스킬, 커넥터, 플러그인, 프로젝트, 아티팩트</span></a>
+    <a class="part" href="#p3"><span class="num">3부</span><b>학생 데이터가 쌓이는 웹앱</b><span>Apps Script와 AI 피드백, 학교 계정으로 학생 확인</span></a>
+    <a class="part" href="#p4"><span class="num">4부</span><b>GitHub와 수업 홈페이지</b><span>기본 틀로 내 홈페이지를 공개하고 오늘 만든 앱 연결하기</span></a>
+  </div>
+  <p class="note">하나의 앱, <b>삼각함수 그래프 그리기</b>를 단계마다 키워 가며 진행합니다.</p>
 </section>
 
 <!-- ================================================================ -->
@@ -200,7 +211,7 @@
 <section class="block" id="s-models">
   <p class="label">1부 · 모델 고르기</p>
   <h3>모델이 클수록 꼼꼼하지만 토큰을 더 씁니다</h3>
-  <div class="table-wrap"><table>
+  <div class="table-wrap"><table class="models">
     <thead><tr><th>모델</th><th>이럴 때 씁니다</th><th>토큰 비용 (Sonnet = 1)</th></tr></thead>
     <tbody>
       <tr><td><b>Fable 5.1</b><br><small>가장 어려운 과제를 위해</small></td><td>어려운 증명 검토, 긴 단원 자료 설계</td><td>5배 <small>Max 포함, Pro는 사용 크레딧</small></td></tr>
@@ -273,7 +284,7 @@
 </section>
 
 <section class="block" id="s-skill-install">
-  <p class="label">2부 · 스킬 · 따라 하기 ①</p>
+  <p class="label">2부 · 스킬 <span class="pill">따라 하기 ①</span></p>
   <h3>스킬 설치하기</h3>
   <div class="split">
     <ol class="steps">
@@ -290,7 +301,7 @@
 </section>
 
 <section class="block" id="s-humanize">
-  <p class="label">2부 · 스킬 · 따라 하기 ②③</p>
+  <p class="label">2부 · 스킬 <span class="pill">따라 하기 ②③</span></p>
   <h3>AI 티 제거 스킬로 비교해 보기</h3>
   <p>새 대화에 프롬프트를 붙여넣습니다.</p>
   <div class="prompt">
@@ -308,7 +319,7 @@
 </section>
 
 <section class="block" id="s-hwpx">
-  <p class="label">2부 · 스킬 · 따라 하기 ④</p>
+  <p class="label">2부 · 스킬 <span class="pill">따라 하기 ④</span></p>
   <h3>HWPX 스킬로 한글 양식 채우기</h3>
   <p>기안문 양식(.hwpx)을 첨부하고 보냅니다.</p>
   <div class="prompt">
@@ -334,7 +345,7 @@
 </section>
 
 <section class="block" id="s-connector-drive">
-  <p class="label">2부 · 커넥터 · 따라 하기 ①②</p>
+  <p class="label">2부 · 커넥터 <span class="pill">따라 하기 ①②</span></p>
   <h3>구글 드라이브 연결하기</h3>
   <div class="split">
     <ol class="steps">
@@ -351,7 +362,7 @@
 </section>
 
 <section class="block" id="s-calendar">
-  <p class="label">2부 · 커넥터 · 따라 하기 ③</p>
+  <p class="label">2부 · 커넥터 <span class="pill">따라 하기 ③</span></p>
   <h3>캘린더 일정으로 바로 안내문 쓰기</h3>
   <div class="prompt" data-title="캘린더 활용">
 <pre>[수학점핑학교 최종보고서 제출일]을 내 캘린더에 저장해 줘.</pre>
@@ -372,7 +383,7 @@
 </section>
 
 <section class="block" id="s-plugin">
-  <p class="label">2부 · 플러그인 <span class="tag">유료 요금제</span></p>
+  <p class="label">2부 · 플러그인 <span class="pill">유료 요금제</span></p>
   <h3>플러그인은 스킬과 커넥터를 묶은 꾸러미</h3>
   <p>한 번에 추가하고, 동료에게 한 번에 나눠 줄 수 있습니다. 오늘 써 볼 「학교 업무」 플러그인의 구성입니다.</p>
   <div class="cards three">
@@ -415,7 +426,7 @@
 </section>
 
 <section class="block" id="s-md">
-  <p class="label">2부 · 프로젝트 · 따라 하기 ①</p>
+  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ①</span></p>
   <h3>성취기준 파일을 md로 바꾸기</h3>
   <p>새 대화 → 입력창 [+] → 파일 업로드로 성취기준 파일을 올리고 보냅니다. 만들어진 md 파일은 다운로드합니다.</p>
   <div class="prompt">
@@ -431,7 +442,7 @@
 </section>
 
 <section class="block" id="s-project-make">
-  <p class="label">2부 · 프로젝트 · 따라 하기 ②③</p>
+  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ②③</span></p>
   <h3>프로젝트 만들고 자료 넣기</h3>
   <ol class="steps">
     <li>왼쪽 사이드바 <b>프로젝트(Projects)</b></li>
@@ -445,7 +456,7 @@
 </section>
 
 <section class="block" id="s-project-compare">
-  <p class="label">2부 · 프로젝트 · 따라 하기 ③④</p>
+  <p class="label">2부 · 프로젝트 <span class="pill">따라 하기 ③④</span></p>
   <h3>지침을 넣고, 결과를 비교하기</h3>
   <div class="prompt" data-title="프로젝트 지침">
 <pre>나는 [대수]를 가르치는 교사야.
@@ -481,7 +492,7 @@
 </section>
 
 <section class="block" id="s-artifact-tool">
-  <p class="label">2부 · 아티팩트 · 따라 하기 ①</p>
+  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ①</span></p>
   <h3>아티팩트로 탐구 도구 만들기</h3>
   <p>2부에서 만든 과목 프로젝트를 열고 그 안에서 보냅니다.</p>
   <div class="split wide-left">
@@ -506,7 +517,7 @@
 </section>
 
 <section class="block" id="s-artifact-share">
-  <p class="label">2부 · 아티팩트 · 따라 하기 ②</p>
+  <p class="label">2부 · 아티팩트 <span class="pill">따라 하기 ②</span></p>
   <h3>학생에게 링크로 나눠 주기</h3>
   <div class="split">
     <ol class="steps">
@@ -589,7 +600,7 @@
 </section>
 
 <section class="block" id="s-codegs">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ①</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ①</span></p>
   <h3>Claude에게 Code.gs와 index.html 만들기</h3>
   <p>그래프 그리기 화면을 만든 대화에 이어서 보냅니다.</p>
   <div class="prompt">
@@ -604,7 +615,7 @@
 </section>
 
 <section class="block" id="s-paste">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ②③④</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ②③④</span></p>
   <h3>시트를 만들고 코드 붙여넣기</h3>
   <div class="split">
     <ol class="steps">
@@ -621,7 +632,7 @@
 </section>
 
 <section class="block" id="s-deploy">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑤</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑤</span></p>
   <h3>웹앱으로 배포하기</h3>
   <div class="split">
     <ol class="steps">
@@ -636,7 +647,7 @@
 </section>
 
 <section class="block" id="s-auth">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑤</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑤</span></p>
   <h3>처음 배포할 때 Google 인증 통과하기</h3>
   <div class="gallery">
     <figure><img src="assets/img/auth1.png" alt="경고 화면" loading="lazy"><figcaption><b>1</b> 경고 화면 왼쪽 아래 [고급] 클릭</figcaption></figure>
@@ -647,7 +658,7 @@
 </section>
 
 <section class="block" id="s-submit">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑥</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑥</span></p>
   <h3>학생처럼 제출해 보기</h3>
   <div class="cards three">
     <div class="card"><b>웹 앱 URL 열기</b><p>스마트폰이나 새 창에서 학번(5자리)과 성명 입력</p></div>
@@ -717,7 +728,7 @@
 </section>
 
 <section class="block" id="s-apikey">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑦</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑦</span></p>
   <h3>AI 붙이기: Gemini API 키 발급</h3>
   <div class="split">
     <ol class="steps">
@@ -734,7 +745,7 @@
 </section>
 
 <section class="block" id="s-gemini">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑧</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑧</span></p>
   <h3>Claude에게 AI 피드백 기능 추가하기</h3>
   <p>같은 대화에서 이어서 보냅니다. 바뀐 두 파일을 통째로 다시 붙여넣습니다.</p>
   <div class="prompt">
@@ -748,7 +759,7 @@
 </section>
 
 <section class="block" id="s-props">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑨⑩</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑨⑩</span></p>
   <h3>API 키 넣고 연결 확인하기</h3>
   <div class="split">
     <ol class="steps">
@@ -765,7 +776,7 @@
 </section>
 
 <section class="block" id="s-redeploy">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑪⑫</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑪⑫</span></p>
   <h3>다시 배포하고 AI 피드백 확인하기</h3>
   <div class="cards three">
     <div class="card"><b>새 버전으로 다시 배포</b><p>[배포 관리] → 연필 [수정] → 새 버전 → 같은 URL로 다시 제출</p></div>
@@ -788,7 +799,7 @@
 </section>
 
 <section class="block" id="s-class-analysis">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑬</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑬</span></p>
   <h3>커넥터로 반 전체 결과 분석하기</h3>
   <ol class="steps">
     <li>Claude 새 대화 → [+] → 커넥터 → <b>Drive 켜기</b></li>
@@ -804,7 +815,7 @@
 </section>
 
 <section class="block" id="s-school-account">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑭ <span class="tag soft">선택</span></p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑭</span> <span class="pill">선택</span></p>
   <h3>학교 계정으로 학생 확인하기</h3>
   <div class="prompt">
 <pre>학번 대신 학생이 로그인한 학교 계정 이메일로 누가 냈는지 기록하게 바꿔 줘. 바뀐 파일은 전체를 다시 줘.
@@ -821,7 +832,7 @@
 </section>
 
 <section class="block" id="s-gmail-account">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑮ <span class="tag soft">선택</span></p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑮</span> <span class="pill">선택</span></p>
   <h3>개인 Gmail로 학생 확인하기</h3>
   <div class="prompt">
 <pre>학번 대신 학생의 개인 Gmail 이메일로 누가 냈는지 기록하게 바꿔 줘. 바뀐 파일은 전체를 다시 줘.
@@ -850,7 +861,7 @@
 </section>
 
 <section class="block" id="s-firebase">
-  <p class="label">3부 · ② Firebase · 따라 하기 ⑯</p>
+  <p class="label">3부 · ② Firebase <span class="pill">따라 하기 ⑯</span></p>
   <h3>Firebase: 프로젝트 만들고 Google 로그인 켜기</h3>
   <ol class="steps big-steps">
     <li><b>프로젝트 만들고 내 앱 등록</b>
@@ -871,7 +882,7 @@
 </section>
 
 <section class="block" id="s-prompt1">
-  <p class="label">3부 · ② GitHub · Firebase · Apps Script · 따라 하기 ⑰</p>
+  <p class="label">3부 · ② GitHub · Firebase · Apps Script <span class="pill">따라 하기 ⑰</span></p>
   <h3>프롬프트 ①: 바뀐 Code.gs부터 받기</h3>
   <div class="prompt">
 <pre>학생 화면은 GitHub에 올리고 로그인은 Firebase로 바꾸려고 해. 먼저 바뀐 Code.gs 전체만 줘.
@@ -888,7 +899,7 @@
 </section>
 
 <section class="block" id="s-new-codegs">
-  <p class="label">3부 · ② Apps Script · 따라 하기 ⑱</p>
+  <p class="label">3부 · ② Apps Script <span class="pill">따라 하기 ⑱</span></p>
   <h3>Apps Script: 새 Code.gs로 바꾸고 주소 받기</h3>
   <ol class="steps big-steps" start="3">
     <li><b>Code.gs 바꿔 넣기</b>
@@ -915,7 +926,7 @@
 </section>
 
 <section class="block" id="s-prompt2">
-  <p class="label">3부 · ② GitHub · Firebase · Apps Script · 따라 하기 ⑲</p>
+  <p class="label">3부 · ② GitHub · Firebase · Apps Script <span class="pill">따라 하기 ⑲</span></p>
   <h3>프롬프트 ②: 주소까지 들어간 index.html 받기</h3>
   <div class="prompt">
 <pre>Code.gs 배포했어. 이제 GitHub에 올릴 index.html 전체를 줘.
@@ -959,7 +970,7 @@
 </section>
 
 <section class="block" id="s-gh-account">
-  <p class="label">3부 · ② GitHub · 따라 하기 ⑳</p>
+  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ⑳</span></p>
   <h3>GitHub: 계정 만들고 사용자 이름 정하기</h3>
   <ol class="steps big-steps" start="6">
     <li><b>GitHub 계정 만들기</b>
@@ -982,7 +993,7 @@
 </section>
 
 <section class="block" id="s-gh-connector">
-  <p class="label">3부 · ② GitHub · 따라 하기 ㉑</p>
+  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ㉑</span></p>
   <h3>GitHub: Claude에 커넥터로 연결하기</h3>
   <ol class="steps big-steps" start="8">
     <li><b>커넥터에서 GitHub 추가하기</b>
@@ -1012,7 +1023,7 @@
 </section>
 
 <section class="block" id="s-gh-upload">
-  <p class="label">3부 · ② GitHub · 따라 하기 ㉒</p>
+  <p class="label">3부 · ② GitHub <span class="pill">따라 하기 ㉒</span></p>
   <h3>GitHub: index.html 올리고 로그인 허용하기</h3>
   <ol class="steps big-steps" start="11">
     <li><b>저장소 만들고 웹사이트로 공개하기</b>
@@ -1035,7 +1046,7 @@
 </section>
 
 <section class="block" id="s-verify">
-  <p class="label">3부 · ② 확인하기 · 따라 하기 ㉓</p>
+  <p class="label">3부 · ② 확인하기 <span class="pill">따라 하기 ㉓</span></p>
   <h3>학생 계정으로 제출해 보고 확인하기</h3>
   <ol class="steps big-steps" start="13">
     <li><b>시크릿 창에서 학생처럼 제출</b>
@@ -1111,7 +1122,7 @@
 </section>
 
 <section class="block" id="s-repo">
-  <p class="label">4부 · GitHub · 따라 하기 ①</p>
+  <p class="label">4부 · GitHub <span class="pill">따라 하기 ①</span></p>
   <h3>GitHub 저장소 만들기</h3>
   <ol class="steps">
     <li>github.com 오른쪽 위 <b>[+] → New repository</b></li>
@@ -1122,7 +1133,7 @@
 </section>
 
 <section class="block" id="s-upload-template">
-  <p class="label">4부 · GitHub · 따라 하기 ②</p>
+  <p class="label">4부 · GitHub <span class="pill">따라 하기 ②</span></p>
   <h3>기본 틀 올리고 되돌리기</h3>
   <div class="cards two">
     <div class="card"><b>기본 틀 올리기</b>
@@ -1146,7 +1157,7 @@
 </section>
 
 <section class="block" id="s-pages-on">
-  <p class="label">4부 · GitHub Pages · 따라 하기 ③</p>
+  <p class="label">4부 · GitHub Pages <span class="pill">따라 하기 ③</span></p>
   <h3>GitHub Pages 켜고 스마트폰으로 접속</h3>
   <ol class="steps">
     <li>저장소 <b>Settings → 왼쪽 Pages</b></li>
@@ -1159,7 +1170,7 @@
 </section>
 
 <section class="block" id="s-config-name">
-  <p class="label">4부 · 수업 홈페이지 · 따라 하기 ④</p>
+  <p class="label">4부 · 수업 홈페이지 <span class="pill">따라 하기 ④</span></p>
   <h3>site-config.js에서 내 이름으로 바꾸기</h3>
   <div class="split">
     <ol class="steps">
@@ -1183,7 +1194,7 @@
 </section>
 
 <section class="block" id="s-config-card">
-  <p class="label">4부 · 수업 홈페이지 · 따라 하기 ⑤</p>
+  <p class="label">4부 · 수업 홈페이지 <span class="pill">따라 하기 ⑤</span></p>
   <h3>3부에서 만든 앱을 카드로 연결하기</h3>
   <div class="split">
     <ol class="steps">
@@ -1208,7 +1219,7 @@
 </section>
 
 <section class="block" id="s-check">
-  <p class="label">4부 · GitHub Pages · 따라 하기 ⑥</p>
+  <p class="label">4부 · GitHub Pages <span class="pill">따라 하기 ⑥</span></p>
   <h3>학생에게 알리기 전에 Claude에게 점검받기</h3>
   <p>site-config.js 파일을 첨부하고 보냅니다.</p>
   <div class="prompt">
@@ -1225,7 +1236,7 @@
 </section>
 
 <section class="block" id="s-qr">
-  <p class="label">4부 · 확인하기 · 따라 하기 ⑦</p>
+  <p class="label">4부 · 확인하기 <span class="pill">따라 하기 ⑦</span></p>
   <h3>QR로 나눠 주고, 막히면 여기부터</h3>
   <ol class="steps big-steps">
     <li><b>QR로 학생에게 나누기</b>
@@ -1251,7 +1262,7 @@
 </section>
 
 <section class="block" id="s-after">
-  <p class="label">4부 · 더 해 보기 <span class="tag soft">선택</span></p>
+  <p class="label">4부 · 더 해 보기 <span class="pill">선택</span></p>
   <h3>연수 뒤에: 새 앱을 내 홈페이지에 올리기</h3>
   <p>app-template/index.html을 첨부하고 보냅니다.</p>
   <div class="prompt" data-title="앱 올리기">
@@ -1341,6 +1352,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
 
-<script src="assets/app.js?v=3"></script>
+<script src="assets/app.js?v=4"></script>
 </body>
 </html>
