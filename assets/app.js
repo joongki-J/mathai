@@ -438,7 +438,7 @@
     if (!name || !school) return;
     if (!window.crypto || !crypto.subtle) { show("이 브라우저에서는 확인할 수 없습니다. 크롬이나 엣지로 열어 주세요.", true); return; }
     btn.disabled = true; btn.textContent = "확인 중…";
-    dataP = dataP || fetch("assets/accounts.json?v=1", { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+    dataP = dataP || fetch("assets/accounts.json?v=2", { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); });
     dataP.then(function (data) {
       var enc = new TextEncoder();
       return crypto.subtle.importKey("raw", enc.encode(name + "|" + school), "PBKDF2", false, ["deriveBits"])
