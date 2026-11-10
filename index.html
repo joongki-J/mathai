@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
   <div class="topbar-in">
     <a class="brand" href="#top"><span class="dot"></span>Claude 수학 수업 연수</a>
     <nav class="topnav" aria-label="부 이동">
+      <a href="#account">내 계정</a>
       <a href="#files">자료실</a>
       <a href="#links">사이트</a>
       <a href="#p1">1부</a>
@@ -34,6 +35,21 @@
 <main id="top">
 
 <!-- ================= 자료실 ================= -->
+<!-- ================= 내 계정 확인 ================= -->
+<section class="block account" id="account">
+  <p class="label">11/10(화) · 11/12(목) 수학과 연수생용</p>
+  <h2>내 연수 계정 확인</h2>
+  <p class="sub">이름과 소속 학교를 넣으면 오늘 쓸 Claude 계정의 아이디와 비밀번호가 나옵니다.</p>
+  <form class="acct-form" id="acctForm" autocomplete="off">
+    <label><span>이름</span><input type="text" id="acctName" placeholder="예: 홍길동" required></label>
+    <label><span>소속 학교</span><input type="text" id="acctSchool" placeholder="예: 화원고 또는 화원고등학교" required></label>
+    <button type="submit" id="acctBtn">계정 확인</button>
+  </form>
+  <div class="acct-result" id="acctResult" hidden></div>
+  <p class="fine">학교 이름은 줄여 써도 됩니다(화원고, 혜화여고, 경북여상 등). 계정 정보는 암호화되어 있어 이름과 학교가 모두 맞아야만 보입니다.</p>
+  <p class="warn">계정은 연수 시간에만 사용하고, 다른 사람에게 알려 주지 않습니다.</p>
+</section>
+
 <section class="block files" id="files">
   <p class="label">중등 교사 연수 · 자료실</p>
   <h2>연수 자료 내려받기</h2>
@@ -1252,6 +1268,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
 
-<script src="assets/app.js?v=7"></script>
+<script src="assets/app.js?v=9"></script>
 </body>
 </html>

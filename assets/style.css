@@ -650,3 +650,20 @@ body.only .links{display:none}
 .works{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
 .works h3{margin-bottom:4px}
 .works .sub{margin:0 0 12px}
+
+/* 내 계정 확인 */
+.acct-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin:6px 0 14px}
+.acct-form label{display:flex;flex-direction:column;gap:4px;flex:1 1 200px;font-size:13.5px;font-weight:700;color:var(--ink-2)}
+.acct-form input{font:inherit;font-size:16px;font-weight:500;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.acct-form input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.acct-form button{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:10px;background:var(--accent);color:#fff;padding:0 22px;min-height:46px;cursor:pointer;flex:0 0 auto}
+.acct-form button:disabled{opacity:.6;cursor:wait}
+.acct-result{border-radius:12px;padding:16px;margin:0 0 6px;background:var(--cream)}
+.acct-result.err{background:#FBEDE7;color:#5B2414;font-size:14.5px}
+.acct-row{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px}
+.acct-row .k{flex:none;width:64px;font-size:13px;font-weight:700;color:var(--ink-3)}
+.acct-row .v{flex:1;min-width:0;font-family:var(--mono);font-size:17px;font-weight:700;overflow-wrap:anywhere}
+.acct-row button{flex:none;font:inherit;font-size:13px;font-weight:700;border:0;border-radius:8px;background:var(--ink);color:#fff;padding:7px 12px;cursor:pointer}
+.acct-row button.done{background:var(--ok)}
+.acct-go{display:inline-block;margin-top:4px;font-weight:700;font-size:14.5px}
+@media (max-width:600px){.acct-form button{width:100%}}

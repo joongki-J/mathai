@@ -219,7 +219,10 @@
   var pages = [];
   var cur = 0;
   var offset = 0; /* 자료실은 번호 없이, 표지부터 1번 */
-  function numOf(i) { return i < offset ? "자료" : String(i - offset + 1); }
+  function numOf(i) {
+    if (i < offset) { var c = pages[i].classList; return c.contains("account") ? "계정" : c.contains("links") ? "사이트" : "자료"; }
+    return String(i - offset + 1);
+  }
 
   var prevBtn = document.getElementById("prevBtn");
   var nextBtn = document.getElementById("nextBtn");
@@ -248,7 +251,7 @@
       if (!only) return true;
       return s.classList.contains("has-prompt");
     });
-    offset = pages.filter(function (s) { return s.classList.contains("files") || s.classList.contains("links"); }).length;
+    offset = pages.filter(function (s) { return s.classList.contains("files") || s.classList.contains("links") || s.classList.contains("account"); }).length;
     pgTotal.textContent = pages.length - offset;
     tocList.innerHTML = "";
     pages.forEach(function (s, i) {
@@ -391,4 +394,75 @@
   buildPages();
   var start = pageIndexForId(location.hash.slice(1));
   go(start === -1 ? 0 : start, 1, false);
+})();
+
+/* =========================================================
+   내 계정 확인: 이름+학교로 암호화된 계정 정보를 풀어 보여 줌
+   ========================================================= */
+(function () {
+  "use strict";
+  var form = document.getElementById("acctForm");
+  if (!form) return;
+  var nameEl = document.getElementById("acctName");
+  var schoolEl = document.getElementById("acctSchool");
+  var btn = document.getElementById("acctBtn");
+  var out = document.getElementById("acctResult");
+  var dataP = null;
+
+  function b64(s) { var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+  function normName(s) { return s.normalize("NFC").replace(/\s+/g, ""); }
+  function normSchool(s) {
+    s = s.normalize("NFC").replace(/\s+/g, "");
+    [["고등학교", "고"], ["중학교", "중"], ["여자", "여"], ["상업", "상"]].forEach(function (p) { s = s.split(p[0]).join(p[1]); });
+    return s;
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function show(html, err) {
+    out.hidden = false;
+    out.className = "acct-result" + (err ? " err" : "");
+    out.innerHTML = html;
+  }
+
+  function copyBtn(b, text) {
+    b.addEventListener("click", function () {
+      var done = function () { b.classList.add("done"); b.textContent = "복사됨"; setTimeout(function () { b.classList.remove("done"); b.textContent = "복사"; }, 1500); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, function () {});
+      else { var t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(t); }
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = normName(nameEl.value), school = normSchool(schoolEl.value);
+    if (!name || !school) return;
+    if (!window.crypto || !crypto.subtle) { show("이 브라우저에서는 확인할 수 없습니다. 크롬이나 엣지로 열어 주세요.", true); return; }
+    btn.disabled = true; btn.textContent = "확인 중…";
+    dataP = dataP || fetch("assets/accounts.json?v=1", { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+    dataP.then(function (data) {
+      var enc = new TextEncoder();
+      return crypto.subtle.importKey("raw", enc.encode(name + "|" + school), "PBKDF2", false, ["deriveBits"])
+        .then(function (base) {
+          return crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: b64(data.salt), iterations: data.iter }, base, 384);
+        })
+        .then(function (bits) {
+          var all = new Uint8Array(bits);
+          var tag = btoa(String.fromCharCode.apply(null, all.slice(32)));
+          var hit = data.entries.filter(function (x) { return x.t === tag; })[0];
+          if (!hit) return null;
+          return crypto.subtle.importKey("raw", all.slice(0, 32), "AES-GCM", false, ["decrypt"])
+            .then(function (k) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(hit.iv) }, k, b64(hit.c)); })
+            .then(function (pt) { return JSON.parse(new TextDecoder().decode(pt)); });
+        });
+    }).then(function (acc) {
+      if (!acc) { show("일치하는 계정이 없습니다. 이름과 학교 이름을 다시 확인해 주세요. 계속 안 되면 강사에게 알려 주세요.", true); return; }
+      show('<div class="acct-row"><span class="k">아이디</span><span class="v">' + esc(acc.id) + '</span><button type="button">복사</button></div>' +
+           '<div class="acct-row"><span class="k">비밀번호</span><span class="v">' + esc(acc.pw) + '</span><button type="button">복사</button></div>' +
+           '<a class="acct-go" href="https://claude.ai/login" target="_blank" rel="noopener">claude.ai 로그인하러 가기 →</a>');
+      var bs = out.querySelectorAll(".acct-row button");
+      copyBtn(bs[0], acc.id); copyBtn(bs[1], acc.pw);
+    }).catch(function () {
+      show("계정 정보를 불러오지 못했습니다. 잠시 뒤 다시 눌러 주세요.", true);
+    }).then(function () { btn.disabled = false; btn.textContent = "계정 확인"; });
+  });
 })();
