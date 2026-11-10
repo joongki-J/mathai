@@ -176,7 +176,7 @@
       li.querySelector(".file-meta").textContent = meta;
       var a = li.querySelector(".file-dl");
       a.href = href;
-      a.setAttribute("download", f.name);
+      a.setAttribute("download", f.name.replace(/^\d+[_\-\s.]+/, ""));
       a.setAttribute("aria-label", displayName(f.name) + " 내려받기");
       listEl.appendChild(li);
     });
