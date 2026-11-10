@@ -39,14 +39,14 @@
 <section class="block account" id="account">
   <p class="label">11/10(화) · 11/12(목) 수학과 연수생용</p>
   <h2>내 연수 계정 확인</h2>
-  <p class="sub">이름과 소속 학교를 넣으면 오늘 쓸 Claude 계정의 아이디와 비밀번호가 나옵니다.</p>
+  <p class="sub">소속 학교와 이름을 넣으면 오늘 쓸 Claude 계정의 아이디와 비밀번호가 나옵니다.</p>
   <form class="acct-form" id="acctForm" autocomplete="off">
+    <label><span>소속 학교</span><input type="text" id="acctSchool" placeholder="예: 대구고 또는 대구고등학교" required></label>
     <label><span>이름</span><input type="text" id="acctName" placeholder="예: 홍길동" required></label>
-    <label><span>소속 학교</span><input type="text" id="acctSchool" placeholder="예: 화원고 또는 화원고등학교" required></label>
     <button type="submit" id="acctBtn">계정 확인</button>
   </form>
   <div class="acct-result" id="acctResult" hidden></div>
-  <p class="fine">학교 이름은 줄여 써도 됩니다(화원고, 혜화여고, 경북여상 등). 계정 정보는 암호화되어 있어 이름과 학교가 모두 맞아야만 보입니다.</p>
+  <p class="fine">학교 이름은 줄여 써도 됩니다(대구고, 혜화여고, 경북여상 등). 계정 정보는 암호화되어 있어 학교와 이름이 모두 맞아야만 보입니다.</p>
   <p class="warn">계정은 연수 시간에만 사용하고, 다른 사람에게 알려 주지 않습니다.</p>
 </section>
 
@@ -1268,6 +1268,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">복사했습니다</div>
 
-<script src="assets/app.js?v=9"></script>
+<script src="assets/app.js?v=10"></script>
 </body>
 </html>

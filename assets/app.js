@@ -455,7 +455,7 @@
             .then(function (pt) { return JSON.parse(new TextDecoder().decode(pt)); });
         });
     }).then(function (acc) {
-      if (!acc) { show("일치하는 계정이 없습니다. 이름과 학교 이름을 다시 확인해 주세요. 계속 안 되면 강사에게 알려 주세요.", true); return; }
+      if (!acc) { show("일치하는 계정이 없습니다. 학교 이름과 이름을 다시 확인해 주세요. 계속 안 되면 강사에게 알려 주세요.", true); return; }
       show('<div class="acct-row"><span class="k">아이디</span><span class="v">' + esc(acc.id) + '</span><button type="button">복사</button></div>' +
            '<div class="acct-row"><span class="k">비밀번호</span><span class="v">' + esc(acc.pw) + '</span><button type="button">복사</button></div>' +
            '<a class="acct-go" href="https://claude.ai/login" target="_blank" rel="noopener">claude.ai 로그인하러 가기 →</a>');
